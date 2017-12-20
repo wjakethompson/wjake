@@ -2,7 +2,7 @@ Package: wjake
 Title: Personal R Package for Various Functions
 Version: 0.0.0.9000
 Authors@R: c(
-    person("William", "Thompson", email = "jakethompson@ku.edu",
+    person("William", "Thompson", email = "wjakethompson@gmail.com",
 	    role = c("aut", "cre"), comment = c(ORCID = "0000-0001-7339-0300"))
     )
 Description: Example description.
