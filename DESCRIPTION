@@ -7,13 +7,11 @@ Authors@R: c(
     )
 Description: Example description.
 License: GPL-3 | file LICENSE
-Encoding: UTF-8
-LazyData: true
 URL: https://github.com/wjakethompson/wjake
 BugReports: https://github.com/wjakethompson/wjake/issues
-Depends:
+Depends: 
     R (>= 3.4.0)
-Imports:
+Imports: 
     blogdown (>= 0.4),
     bookdown (>= 0.5),
     BRRR (>= 1.2),
@@ -53,12 +51,13 @@ Imports:
     tweenr (>= 0.1.5),
     usethis (>= 1.1.0),
     viridis (>= 0.4.0)
-Suggests:
+Suggests: 
     covr (>= 3.0.1),
     lintr (>= 1.0.2),
     testthat (>= 2.0.0)
-Remotes:
-    bradleyboehmke/harrypotter,
+Encoding: UTF-8
+LazyData: true
+Remotes: bradleyboehmke/harrypotter,
     brooke-watson/BRRR,
     calligross/ggthemeassist,
     datawookie/feedeR,
@@ -76,5 +75,5 @@ Remotes:
     thomasp85/tidygraph,
     thomasp85/tweenr,
     trinker/sentimentr
-RoxygenNote: 6.0.1.9000
 Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1.9000
