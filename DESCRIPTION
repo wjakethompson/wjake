@@ -10,7 +10,7 @@ License: GPL-3 | file LICENSE
 URL: https://github.com/wjakethompson/wjake
 BugReports: https://github.com/wjakethompson/wjake/issues
 Depends: 
-    R (>= 3.4.0)
+    R (>= 3.1)
 Imports: 
     blogdown (>= 0.4),
     bookdown (>= 0.5),
@@ -52,9 +52,9 @@ Imports:
     usethis (>= 1.1.0),
     viridis (>= 0.4.0)
 Suggests: 
-    covr (>= 3.0.1),
+    covr,
     lintr (>= 1.0.2),
-    testthat (>= 2.0.0)
+    testthat
 Encoding: UTF-8
 LazyData: true
 Remotes: bradleyboehmke/harrypotter,
