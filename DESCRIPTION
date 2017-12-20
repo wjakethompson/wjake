@@ -3,7 +3,7 @@ Title: Personal R Package for Various Functions
 Version: 0.0.0.9000
 Authors@R: c(
     person("William", "Thompson", email = "jakethompson@ku.edu",
-	    role = c("aut", "cre"))
+	    role = c("aut", "cre"), comment = c(ORCID = "0000-0001-7339-0300"))
     )
 Description: Example description.
 License: GPL-3 | file LICENSE
