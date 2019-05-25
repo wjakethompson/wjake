@@ -115,15 +115,15 @@ hexwall <- function(path, sticker_row_size = 16, sticker_width = 500,
     sticker_rows <- purrr::map2(row_lens, cumsum(row_lens),
                          ~ seq(.y - .x + 1, by = 1, length.out = .x)) %>%
       purrr::map(~ stickers[.x] %>%
-            invoke(c, .) %>%
-            magick::image_append)
+                   purrr::invoke(c, .) %>%
+                   magick::image_append())
 
     # Add stickers to canvas
     canvas <- magick::image_blank(sticker_row_size * sticker_width,
                                   sticker_height + (sticker_col_size - 1) *
                                     sticker_height / 1.33526, "white")
     purrr::reduce2(sticker_rows, seq_along(sticker_rows),
-                   ~ image_composite(
+                   ~ magick::image_composite(
                      ..1, ..2,
                      offset = paste0("+", ( (..3 - 1) %% 2) * sticker_width / 2,
                                      "+", round( (..3 - 1) *
