@@ -3,3 +3,5 @@
 export("%>%")
 export(hexwall)
 importFrom(magrittr,"%>%")
+importFrom(methods,as)
+importFrom(rlang,.data)

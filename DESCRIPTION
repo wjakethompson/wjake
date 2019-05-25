@@ -22,18 +22,21 @@ Imports:
     here (>= 0.1),
     lubridate (>= 1.7.4),
     magick (>= 2.0),
+    magrittr (>= 1.5),
+    methods,
     openxlsx (>= 4.1.0),
     purrr (>= 0.3.2),
     resamplr (>= 0.0.1),
+    rlang (>= 0.3.4),
     RSQLite (>= 2.1.1),
     rtweet (>= 0.6.8),
     stackr (>= 0.0.0.9000),
     tibble (>= 2.1.1),
-    tidyverse (>= 1.2.1),
-    magrittr (>= 1.5)
+    tidyverse (>= 1.2.1)
 Suggests:
     lintr (>= 1.0.3),
-    testthat (>= 2.1.1)
+    testthat (>= 2.1.1),
+    roxygen2 (>= 6.1.1)
 Encoding: UTF-8
 LazyData: true
 Remotes: 

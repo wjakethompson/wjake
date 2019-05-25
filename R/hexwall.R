@@ -39,19 +39,19 @@ hexwall <- function(path, sticker_row_size = 16, sticker_width = 500,
 
   # Low resolution stickers
   low_res <- stickers %>%
-    map_lgl(~ remove_small &&
-              magick::image_info(.x)$width < (sticker_width - 1) / 2 &&
-              magick::image_info(.x)$format != "svg")
+    purrr::map_lgl(~ remove_small &&
+                     magick::image_info(.x)$width < (sticker_width - 1) / 2 &&
+                     magick::image_info(.x)$format != "svg")
   which(low_res)
 
   stickers <- stickers %>%
-    map(magick::image_scale, sticker_width)
+    purrr::map(magick::image_scale, sticker_width)
 
   # Incorrectly sized stickers
   bad_size <- stickers %>%
-    map_lgl(~ remove_size && with(magick::image_info(.x),
-                                  height < (median(height) - 2) |
-                                    height > (median(height) + 2)))
+    purrr::map_lgl(~ remove_size && with(magick::image_info(.x),
+                                         height < (stats::median(height) - 2) |
+                                           height > (stats::median(height) + 2)))
   which(bad_size)
 
   # Remove bad stickers
@@ -77,7 +77,7 @@ hexwall <- function(path, sticker_row_size = 16, sticker_width = 500,
   sticker_height <- stickers %>%
     purrr::map(magick::image_info) %>%
     purrr::map_dbl("height") %>%
-    median()
+    stats::median()
   stickers <- stickers %>%
     purrr::map(magick::image_resize,
                paste0(sticker_width, "x", sticker_height, "!"))
@@ -140,14 +140,15 @@ hexwall <- function(path, sticker_row_size = 16, sticker_width = 500,
           dx <- diff(sort(abs(x)))
           x / min(dx[dx != 0])
         }) %>%
-        dplyr::mutate(y = y / min(diff(y)[diff(y) != 0])) %>%
-        dplyr::mutate(x = x * sticker_width / 2,
-               y = abs(y - max(y)) * sticker_height / 1.33526)
+        dplyr::mutate(y = .data$y / min(diff(.data$y)[diff(.data$y) != 0])) %>%
+        dplyr::mutate(x = .data$x * sticker_width / 2,
+                      y = abs(.data$y - max(.data$y)) *
+                        sticker_height / 1.33526)
     }
 
     # Add stickers to canvas
-    canvas <- image_blank(max(sticker_pos$x) + sticker_width,
-                          max(sticker_pos$y) + sticker_height, "white")
+    canvas <- magick::image_blank(max(sticker_pos$x) + sticker_width,
+                                  max(sticker_pos$y) + sticker_height, "white")
     purrr::reduce2(stickers, sticker_pos %>% split(1:NROW(.)),
                    ~ image_composite(
                      ..1, ..2,

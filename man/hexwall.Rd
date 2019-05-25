@@ -2,7 +2,7 @@
 % Please edit documentation in R/hexwall.R
 \name{hexwall}
 \alias{hexwall}
-\title{Title}
+\title{Create a hex sticker wall}
 \usage{
 hexwall(path, sticker_row_size = 16, sticker_width = 500,
   remove_small = TRUE, total_stickers = NULL, remove_size = TRUE,
@@ -10,8 +10,34 @@ hexwall(path, sticker_row_size = 16, sticker_width = 500,
   "random", "color", "colour"))
 }
 \arguments{
-\item{sort_mode}{}
+\item{path}{The path to a folde rof hexagon stickers}
+
+\item{sticker_row_size}{The number of stickers in the longest row}
+
+\item{sticker_width}{The width of each sticker in pixels}
+
+\item{remove_small}{Should hexagons smaller than the \code{sticker_width} be
+removed}
+
+\item{total_stickers}{Number of hexagons to include. Defaults to number of
+stickers in \code{path} directory}
+
+\item{remove_size}{Should hexagons of an abnormal size be removed?}
+
+\item{coords}{A \code{data.frame} of coordinates defining the palcement of
+hexagons}
+
+\item{scale_coords}{Should the coordinates be scaled to the hexagon size?}
+
+\item{sort_mode}{How should the files be sorted? One of \code{filename}, \code{random},
+\code{color}, or \code{colour}}
+}
+\value{
+An image of the generated hex sticker wall
 }
 \description{
-Title
+Create a hex sticker wall
+}
+\author{
+Mitchell O'Hara-Wild, https://github.com/mitchelloharawild/hexwall
 }
