@@ -7,6 +7,7 @@
 #'   removed
 #' @param total_stickers Number of hexagons to include. Defaults to number of
 #'   stickers in `path` directory
+#' @param bg Background color for the hex sticker wall
 #' @param remove_size Should hexagons of an abnormal size be removed?
 #' @param coords A `data.frame` of coordinates defining the palcement of
 #'   hexagons
@@ -19,7 +20,7 @@
 #'
 #' @author Mitchell O'Hara-Wild, https://github.com/mitchelloharawild/hexwall
 hexwall <- function(path, sticker_row_size = 16, sticker_width = 500,
-                    remove_small = TRUE, total_stickers = NULL,
+                    remove_small = TRUE, total_stickers = NULL, bg = NULL,
                     remove_size = TRUE, coords = NULL, scale_coords = TRUE,
                     sort_mode = c("filename", "random", "color", "colour")) {
   sort_mode <- match.arg(sort_mode)
@@ -105,13 +106,20 @@ hexwall <- function(path, sticker_row_size = 16, sticker_width = 500,
     stickers <- stickers[sticker_col]
   }
 
+  if (is.null(bg)) {
+    wall_bg <- "none"
+  } else {
+    wall_bg <- bg
+  }
+
   if (is.null(coords)) {
     # Arrange rows of stickers into images
     sticker_col_size <- ceiling(length(stickers) / (sticker_row_size - 0.5))
     row_lens <- rep(c(sticker_row_size, sticker_row_size - 1),
                     length.out = sticker_col_size)
-    row_lens[length(row_lens)] <- row_lens[length(row_lens)] -
+    row_lens[length(row_lens)] <- row_lens[length(row_lens)] +
       (length(stickers) - sum(row_lens))
+    row_lens <- row_lens[which(!row_lens == 0)]
     sticker_rows <- purrr::map2(row_lens, cumsum(row_lens),
                          ~ seq(.y - .x + 1, by = 1, length.out = .x)) %>%
       purrr::map(~ stickers[.x] %>%
@@ -121,7 +129,7 @@ hexwall <- function(path, sticker_row_size = 16, sticker_width = 500,
     # Add stickers to canvas
     canvas <- magick::image_blank(sticker_row_size * sticker_width,
                                   sticker_height + (sticker_col_size - 1) *
-                                    sticker_height / 1.33526, "white")
+                                    sticker_height / 1.33526, wall_bg)
     purrr::reduce2(sticker_rows, seq_along(sticker_rows),
                    ~ magick::image_composite(
                      ..1, ..2,
@@ -148,7 +156,7 @@ hexwall <- function(path, sticker_row_size = 16, sticker_width = 500,
 
     # Add stickers to canvas
     canvas <- magick::image_blank(max(sticker_pos$x) + sticker_width,
-                                  max(sticker_pos$y) + sticker_height, "white")
+                                  max(sticker_pos$y) + sticker_height, wall_bg)
     purrr::reduce2(stickers, sticker_pos %>% split(1:NROW(.)),
                    ~ image_composite(
                      ..1, ..2,
