@@ -4,3 +4,5 @@
 ^codecov\.yml$
 ^README\.Rmd$
 ^appveyor\.yml$
+^LICENSE\.md$
+^logos$

@@ -3,7 +3,6 @@
 \docType{package}
 \name{wjake}
 \alias{wjake}
-\alias{wjake-package}
 \title{wjake: A package for package installation and miscellaneous functions}
 \description{
 Personal package for helping with R setup and random tasks that I Google too

@@ -1,0 +1,4 @@
+Name: Insert Code Heading
+Description: Inserts hyphens to specified width at the cursor position.
+Binding: code_heading
+Interactive: false

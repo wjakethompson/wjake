@@ -1,0 +1,72 @@
+---
+title: "Project Title"
+shorttitle: "Short Project Title"
+subtitle: "Type of Report"
+date: "`r Sys.Date()`"
+knit: bookdown::render_book
+site: "bookdown::bookdown_site"
+author:
+  name: W. Jake Thompson, Ph.D.
+  return-address: 12261 S Crest Drive \bullet\ Olathe, KS 66061
+  return-email: \nolinkurl{wjakethompson@gmail.com}
+  return-phone: (785) 643-9244
+recepient:
+  name: W Jake Thompson, Ph.D.
+  position: Senior Psychometrician
+  organization: Accessible Teaching, Learning, and Assessment Systems
+  address1: Joseph R. Pearson Hall
+  address2: 1122 West Campus Road, Room 437
+  address3: Lawrence, KS 66045
+output: wjake::consulting_report
+bibliography: ["bib/refs.bib", "bib/packages.bib"]
+biblio-style: apa
+biblatexoptions:
+  - sortcites
+csl: csl/apa.csl
+link-citation: yes
+mainfont: Arial
+mathfont: Fira Math
+fontsize: 11pt
+watermark: false
+---
+
+```{r setup, include = FALSE}
+needed_packages <- c("wjake", "here", "fs", "glue", "pluralize", "english",
+                     "knitr", "kableExtra", "ggplot2")
+load_packages <- function(x) {
+  if (!(x %in% installed.packages())) {
+    if (x == "wjake") {
+      remotes::install_github("wjakethompson/wjake", dependencies = TRUE)
+    } else {
+      install.packages(x, repos = "https://cran.rstudio.com/")
+    }
+  }
+  
+  suppressPackageStartupMessages(require(x, character.only = TRUE))
+}
+vapply(needed_packages, load_packages, logical(1))
+
+options(knitr.kable.NA = "")
+ggplot2::theme_set(theme_minimal())
+ggplot2::theme_update(panel.border = element_rect(fill = NA))
+```
+
+
+
+
+
+\newpage
+
+# References
+
+```{r write-packages, include = FALSE}
+if (!file.exists("bib/packages.bib")) file.create("bib/packages.bib")
+suppressWarnings(
+  knitr::write_bib(c(.packages()), "bib/packages.bib")
+)
+```
+
+\printbibliography[heading=none]
+
+\setlength{\parindent}{15pt}
+\setlength{\leftskip}{0pt}

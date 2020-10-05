@@ -4,13 +4,21 @@
 \alias{hexwall}
 \title{Create a hex sticker wall}
 \usage{
-hexwall(path, sticker_row_size = 16, sticker_width = 500,
-  remove_small = TRUE, total_stickers = NULL, remove_size = TRUE,
-  coords = NULL, scale_coords = TRUE, sort_mode = c("filename",
-  "random", "color", "colour"))
+hexwall(
+  path,
+  sticker_row_size = 16,
+  sticker_width = 500,
+  remove_small = TRUE,
+  total_stickers = NULL,
+  bg = NULL,
+  remove_size = TRUE,
+  coords = NULL,
+  scale_coords = TRUE,
+  sort_mode = c("filename", "random", "color", "colour")
+)
 }
 \arguments{
-\item{path}{The path to a folde rof hexagon stickers}
+\item{path}{The path to a folder of hexagon stickers}
 
 \item{sticker_row_size}{The number of stickers in the longest row}
 
@@ -22,9 +30,11 @@ removed}
 \item{total_stickers}{Number of hexagons to include. Defaults to number of
 stickers in \code{path} directory}
 
+\item{bg}{Background color for the hex sticker wall}
+
 \item{remove_size}{Should hexagons of an abnormal size be removed?}
 
-\item{coords}{A \code{data.frame} of coordinates defining the palcement of
+\item{coords}{A \code{data.frame} of coordinates defining the placement of
 hexagons}
 
 \item{scale_coords}{Should the coordinates be scaled to the hexagon size?}

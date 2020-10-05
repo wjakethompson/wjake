@@ -1,6 +1,6 @@
 #' Create a hex sticker wall
 #'
-#' @param path The path to a folde rof hexagon stickers
+#' @param path The path to a folder of hexagon stickers
 #' @param sticker_row_size The number of stickers in the longest row
 #' @param sticker_width The width of each sticker in pixels
 #' @param remove_small Should hexagons smaller than the `sticker_width` be
@@ -9,7 +9,7 @@
 #'   stickers in `path` directory
 #' @param bg Background color for the hex sticker wall
 #' @param remove_size Should hexagons of an abnormal size be removed?
-#' @param coords A `data.frame` of coordinates defining the palcement of
+#' @param coords A `data.frame` of coordinates defining the placement of
 #'   hexagons
 #' @param scale_coords Should the coordinates be scaled to the hexagon size?
 #' @param sort_mode How should the files be sorted? One of `filename`, `random`,
