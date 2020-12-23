@@ -39,7 +39,7 @@ consulting_report <- function(...) {
   base$knitr$opts_chunk$fig.show <- "hold"
   # nolint end
 
-  base$knitr$knit_hooks$plot <- ratlas:::hook_plot_rat
+  base$knitr$knit_hooks$plot <- ratlas:::hook_tex_plot_rat
 
   base
 }
