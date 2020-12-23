@@ -2,7 +2,7 @@
 title: "Project Title"
 shorttitle: "Short Project Title"
 subtitle: "Type of Report"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
 knit: bookdown::render_book
 site: "bookdown::bookdown_site"
 author:
@@ -47,8 +47,7 @@ load_packages <- function(x) {
 vapply(needed_packages, load_packages, logical(1))
 
 options(knitr.kable.NA = "")
-ggplot2::theme_set(theme_minimal())
-ggplot2::theme_update(panel.border = element_rect(fill = NA))
+set_theme(plot_margin = margin(0, 10, 0, 10))
 ```
 
 
