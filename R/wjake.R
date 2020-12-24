@@ -6,6 +6,7 @@
 #' @docType package
 #' @name wjake
 #' @aliases wjake
+#' @import grDevices
 #' @importFrom rlang .data
 NULL
 
