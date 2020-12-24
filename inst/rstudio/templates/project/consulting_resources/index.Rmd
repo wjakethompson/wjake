@@ -25,7 +25,6 @@ biblatexoptions:
 csl: csl/apa.csl
 link-citation: yes
 mainfont: Arial
-mathfont: Fira Math
 fontsize: 11pt
 watermark: false
 ---
