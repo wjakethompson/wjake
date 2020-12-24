@@ -41,7 +41,6 @@ load_packages <- function(x) {
       install.packages(x, repos = "https://cran.rstudio.com/")
     }
   }
-  
   suppressPackageStartupMessages(require(x, character.only = TRUE))
 }
 vapply(needed_packages, load_packages, logical(1))

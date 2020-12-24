@@ -6,7 +6,6 @@
 #' @docType package
 #' @name wjake
 #' @aliases wjake
-#' @importFrom methods as
 #' @importFrom rlang .data
 NULL
 
