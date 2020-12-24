@@ -11,7 +11,7 @@ test_that("consulting_report renders", {
   testthat::skip_on_cran()
 
   # work in a temp directory
-  dir <- create_local_project(fs::file_temp(pattern = "conrep"))
+  dir <- create_local_rmd_dir(dir = fs::file_temp(pattern = "conrep"))
 
   consulting_report_skeleton(dir)
   rmd_name <- tolower(basename(dir))
