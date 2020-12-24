@@ -6,23 +6,18 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/wjakethompson/wjake/workflows/R-CMD-check/badge.svg)](https://github.com/wjakethompson/wjake/actions)
+[![codecov](https://codecov.io/gh/wjakethompson/wjake/branch/main/graph/badge.svg?token=i9e5Zt18sa)](https://codecov.io/gh/wjakethompson/wjake)
 <!-- badges: end -->
 
-The goal of wjake is to …
+This is a personal R package containing utility functions, custom
+[{ggplot2}](https://ggplot2.tidyverse.org/) themes, and common R
+Markdown templates that I use in my work.
 
 ## Installation
 
 You can install wjake from github with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("wjakethompson/wjake")
-```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-## basic example code
+# install.packages("remotes")
+remotes::install_github("wjakethompson/wjake")
 ```
