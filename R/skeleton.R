@@ -15,6 +15,14 @@ consulting_report_skeleton <- function(path) {
   target <- file.path(path, files)
   file.copy(source, target)
 
+  # copy logos
+  fs::dir_create(file.path(path, "figures", "pre-generated"))
+  logos_dir <- wjake_file("logos")
+  logos <- list.files(logos_dir, recursive = TRUE, include.dirs = FALSE)
+  logo_source <- file.path(logos_dir, logos)
+  logo_target <- file.path(path, "figures", "pre-generated", logos)
+  file.copy(logo_source, logo_target)
+
   # add book_filename to _bookdown.yml and default to the base path name
   f <- file.path(path, "_bookdown.yml")
   x <- xfun::read_utf8(f)

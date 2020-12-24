@@ -12,5 +12,6 @@ test_that("copying consulting_report pdf files works", {
                       paste0(tolower(basename(dir)), ".Rmd"),
                       "figures/pre-generated/wjakethompson.png",
                       "figures/pre-generated/wjt-letterhead.pdf",
-                      "figures/pre-generated/wjt-letterhead.png")))
+                      "figures/pre-generated/wjt-letterhead.png",
+                      "figures/pre-generated/wjt-letterhead.svg")))
 })
