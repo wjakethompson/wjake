@@ -3,6 +3,7 @@ CMD
 Metaprogramming
 Rmd
 Viridis
+codecov
 colour
 eval
 geoms
