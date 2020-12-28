@@ -36,7 +36,10 @@
             pdfborder={0 0 0},
             breaklinks=true,
             linktocpage,
-            linktoc=all}
+            linktoc=all,
+            colorlinks=true,
+            citecolor=.,
+            urlcolor=[HTML]{009FB7}}
 \urlstyle{same}  % don't use monospace font for urls
 
 \usepackage{longtable,booktabs,dcolumn}
@@ -192,8 +195,8 @@ $endif$
 \let\endchangemargin=\endlist
 
 % redefine hyperlinks
-\let\oldhref\href
-\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+% \let\oldhref\href
+% \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 
 % page styles
 \usepackage{fancyhdr}
