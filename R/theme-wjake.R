@@ -52,8 +52,6 @@ update_geom_font_defaults <- function(family = "Arial Narrow", face = "plain",
 #' @param ... Additional parameters passed to [theme_wjake()].
 #'
 #' @export
-#'
-#' @examples
 set_theme <- function(base_family = "Arial Narrow", v_option = "D", ...) {
   ggplot2::theme_set(theme_wjake(base_family = base_family, ...))
   update_geom_font_defaults(family = base_family)

@@ -10,6 +10,16 @@ hrbrthemes::scale_x_percent
 #' @importFrom hrbrthemes scale_y_percent
 #' @export
 hrbrthemes::scale_y_percent
+
+#' @importFrom ratlas palette_okabeito
+#' @export
+ratlas::palette_okabeito
+#' @importFrom ratlas palette_okabeito_black
+#' @export
+ratlas::palette_okabeito_black
+#' @importFrom ratlas scale_color_okabeito
+#' @export
+ratlas::scale_color_okabeito
 #' @importFrom ratlas scale_color_okabeito
 #' @export
 ratlas::scale_color_okabeito
