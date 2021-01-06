@@ -4,13 +4,21 @@
 \alias{set_theme}
 \title{Set global plot theme options}
 \usage{
-set_theme(base_family = "Arial Narrow", v_option = "D", ...)
+set_theme(
+  base_family = "Arial Narrow",
+  v_option = c("viridis", "magma", "inferno", "plasma", "cividis", "A", "B", "C", "D",
+    "E"),
+  d_scale = c("okabeito", "wjake"),
+  ...
+)
 }
 \arguments{
 \item{base_family}{base font family and size}
 
 \item{v_option}{Viridis scale for continuous variables. See
 \link[ggplot2:scale_viridis]{ggplot2::scale_colour_viridis_c}.}
+
+\item{d_scale}{Discrete color scale to use.}
 
 \item{...}{Additional parameters passed to \code{\link[=theme_wjake]{theme_wjake()}}.}
 }

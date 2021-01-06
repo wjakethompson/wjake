@@ -36,7 +36,7 @@ create_local_rmd_dir <- function(dir = fs::file_temp(pattern = "testproj"),
   invisible(usethis::proj_get())
 }
 
-local_theme <- function(font, continuous, ..., env = parent.frame()) {
+local_theme <- function(font, continuous, discrete, ..., env = parent.frame()) {
   # set defaults
   options(ggplot2.continuous.colour = NULL,
           ggplot2.continuous.fill = NULL,
@@ -48,7 +48,7 @@ local_theme <- function(font, continuous, ..., env = parent.frame()) {
                 ggplot2.continuous.fill = NULL,
                 ggplot2.discrete.colour = NULL,
                 ggplot2.discrete.fill = NULL)
-  set_theme(base_family = font, v_option = continuous, ...)
+  set_theme(base_family = font, v_option = continuous, d_scale = discrete, ...)
   withr::defer(options(op), envir = env)
 }
 

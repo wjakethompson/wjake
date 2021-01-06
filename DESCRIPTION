@@ -16,6 +16,7 @@ Depends:
     R (>= 3.6.0)
 Imports:
     bookdown,
+    colorspace,
     extrafont,
     ggplot2 (>= 3.3.2),
     grDevices,
@@ -26,6 +27,7 @@ Imports:
     ratlas,
     rlang (>= 0.1.2),
     rstudioapi,
+    scales,
     xfun
 Suggests:
     english,

@@ -2,8 +2,7 @@
 #'
 #' Color palette used for theming https://wjakethompson.com.
 #' @export
-palette_wjake <- c("#F0F0F0", "#272727", "#FED766", "#009FB7", "#696773")
-
+palette_wjake <- c("#009FB7", "#FED766", "#272727", "#696773", "#F0F0F0")
 
 
 #' Custom color ramps

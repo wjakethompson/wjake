@@ -62,14 +62,14 @@ test_that("update_geom_font_defaults() works", {
 
 # Set theme --------------------------------------------------------------------
 test_that("theme_wjake is a theme", {
-  local_theme(font = "Arial Narrow", continuous = "D")
+  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
   expect_s3_class(thm, "theme")
 })
 
 test_that("theme_wjake uses Arial Narrow font", {
-  local_theme(font = "Arial Narrow", continuous = "D")
+  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
   expect_equal(thm$text$family, "Arial Narrow")
@@ -83,7 +83,7 @@ test_that("theme_wjake uses Arial Narrow font", {
 })
 
 test_that("theme_wjake font sizes are correct", {
-  local_theme(font = "Arial Narrow", continuous = "D")
+  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
   expect_equal(thm$text$size, 11.5)
@@ -95,7 +95,7 @@ test_that("theme_wjake font sizes are correct", {
 })
 
 test_that("theme_wjake font colors are correct", {
-  local_theme(font = "Arial Narrow", continuous = "D")
+  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
   expect_equal(thm$text$colour, "black")
@@ -103,7 +103,7 @@ test_that("theme_wjake font colors are correct", {
 })
 
 test_that("theme_wjake grids, axis, and ticks are correct", {
-  local_theme(font = "Arial Narrow", continuous = "D")
+  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
   expect_equal(invisible(theme_wjake(grid = FALSE)),
@@ -130,7 +130,8 @@ test_that("theme_wjake grids, axis, and ticks are correct", {
 library(ggplot2)
 
 test_that("magma works", {
-  local_theme(font = "Arial Narrow", continuous = "magma")
+  local_theme(font = "Arial Narrow", continuous = "magma",
+              discrete = "okabeito")
   thm <- theme_get()
 
   plot_f <- ggplot(faithfuld, aes(waiting, eruptions)) +
@@ -145,7 +146,8 @@ test_that("magma works", {
 })
 
 test_that("inferno works", {
-  local_theme(font = "Arial Narrow", continuous = "inferno")
+  local_theme(font = "Arial Narrow", continuous = "inferno",
+              discrete = "okabeito")
   thm <- theme_get()
 
   plot_f <- ggplot(faithfuld, aes(waiting, eruptions)) +
@@ -160,7 +162,8 @@ test_that("inferno works", {
 })
 
 test_that("plasma works", {
-  local_theme(font = "Arial Narrow", continuous = "plasma")
+  local_theme(font = "Arial Narrow", continuous = "plasma",
+              discrete = "okabeito")
   thm <- theme_get()
 
   plot_f <- ggplot(faithfuld, aes(waiting, eruptions)) +
@@ -175,7 +178,8 @@ test_that("plasma works", {
 })
 
 test_that("viridis works", {
-  local_theme(font = "Arial Narrow", continuous = "viridis")
+  local_theme(font = "Arial Narrow", continuous = "viridis",
+              discrete = "okabeito")
   thm <- theme_get()
 
   plot_f <- ggplot(faithfuld, aes(waiting, eruptions)) +
@@ -190,7 +194,8 @@ test_that("viridis works", {
 })
 
 test_that("cividis works", {
-  local_theme(font = "Arial Narrow", continuous = "cividis")
+  local_theme(font = "Arial Narrow", continuous = "cividis",
+              discrete = "okabeito")
   thm <- theme_get()
 
   plot_f <- ggplot(faithfuld, aes(waiting, eruptions)) +
@@ -205,7 +210,8 @@ test_that("cividis works", {
 })
 
 test_that("okabe ito works", {
-  local_theme(font = "Arial Narrow", continuous = "viridis")
+  local_theme(font = "Arial Narrow", continuous = "viridis",
+              discrete = "okabeito")
   thm <- theme_get()
 
   df <- data.frame(
@@ -224,4 +230,26 @@ test_that("okabe ito works", {
 
   vdiffr::expect_doppelganger("okabeito_f", plot_f)
   vdiffr::expect_doppelganger("okabeito_c", plot_c)
+})
+
+test_that("wjake works", {
+  local_theme(font = "Arial Narrow", continuous = "viridis", discrete = "wjake")
+  thm <- theme_get()
+
+  df <- data.frame(
+    x = rep(c(2, 5, 7, 9, 12), 2),
+    y = rep(c(1, 2), each = 5),
+    z = factor(rep(1:5, each = 2)),
+    w = rep(diff(c(0, 4, 6, 8, 10, 14)), 2)
+  )
+
+  plot_f <- ggplot(df, aes(x, y)) +
+    geom_tile(aes(fill = z), colour = "grey50") +
+    thm
+  plot_c <- ggplot(economics_long, aes(date, value01, colour = variable)) +
+    geom_line() +
+    thm
+
+  vdiffr::expect_doppelganger("wjake_f", plot_f)
+  vdiffr::expect_doppelganger("wjake_c", plot_c)
 })

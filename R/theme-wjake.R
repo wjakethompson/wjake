@@ -49,10 +49,17 @@ update_geom_font_defaults <- function(family = "Arial Narrow", face = "plain",
 #' @inheritParams hrbrthemes::theme_ipsum
 #' @param v_option Viridis scale for continuous variables. See
 #'   [ggplot2::scale_colour_viridis_c].
+#' @param d_scale Discrete color scale to use.
 #' @param ... Additional parameters passed to [theme_wjake()].
 #'
 #' @export
-set_theme <- function(base_family = "Arial Narrow", v_option = "D", ...) {
+set_theme <- function(base_family = "Arial Narrow",
+                      v_option = c("viridis", "magma", "inferno", "plasma",
+                                   "cividis", "A", "B", "C", "D", "E"),
+                      d_scale = c("okabeito", "wjake"), ...) {
+  v_option <- match.arg(v_option)
+  d_scale <- match.arg(d_scale)
+
   ggplot2::theme_set(theme_wjake(base_family = base_family, ...))
   update_geom_font_defaults(family = base_family)
 
@@ -63,8 +70,15 @@ set_theme <- function(base_family = "Arial Narrow", v_option = "D", ...) {
     ggplot2::scale_colour_continuous(..., option = option, type = "viridis")
   }
 
-  options(ggplot2.discrete.fill = ratlas::scale_fill_okabeito,
-          ggplot2.discrete.colour = ratlas::scale_colour_okabeito,
+  disc_fill <- switch(d_scale,
+                      wjake = scale_fill_wjake,
+                      okabeito = scale_fill_okabeito)
+  disc_colr <- switch(d_scale,
+                      wjake = scale_colour_wjake,
+                      okabeito = scale_colour_okabeito)
+
+  options(ggplot2.discrete.fill = disc_fill,
+          ggplot2.discrete.colour = disc_colr,
           ggplot2.continuous.fill = cont_fill,
           ggplot2.continuous.colour = cont_colr)
 }
