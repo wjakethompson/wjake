@@ -4,14 +4,14 @@
 \alias{gt_theme_wjake}
 \title{Personalized gt theme}
 \usage{
-gt_theme_wjake(data, bg_color = "#F0F0F0", ...)
+gt_theme_wjake(gt_dat, bg_color = "#F0F0F0", ...)
 }
 \arguments{
+\item{gt_dat}{A \code{gt_tbl} object, generated from \link[gt:gt]{gt::gt}.}
+
 \item{bg_color}{The background color of the table cells.}
 
 \item{...}{Additional arguments passed to \link[gt:tab_options]{gt::tab_options}.}
-
-\item{gt_dat}{A \code{gt_tbl} object, generated from \link[gt:gt]{gt::gt}.}
 }
 \value{
 An object of class \code{gt_tbl}.
