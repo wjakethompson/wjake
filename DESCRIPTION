@@ -19,6 +19,7 @@ Imports:
     extrafont,
     ggplot2 (>= 3.3.2),
     grDevices,
+    gt,
     hrbrthemes,
     knitr,
     magrittr,
