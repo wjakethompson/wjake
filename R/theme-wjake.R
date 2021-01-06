@@ -22,6 +22,10 @@
 theme_wjake <- function(base_family = "Arial Narrow", ...) {
   ret <- hrbrthemes::theme_ipsum(base_family = base_family, ...)
 
+  ret <- ret + ggplot2::theme(legend.background = ggplot2::element_blank())
+  ret <- ret + ggplot2::theme(legend.key = ggplot2::element_blank())
+  ret <- ret + ggplot2::theme(legend.position = "bottom")
+
   ret
 }
 
