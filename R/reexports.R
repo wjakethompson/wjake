@@ -22,3 +22,6 @@ ratlas::scale_fill_okabeito
 #' @importFrom ratlas scale_okabeito
 #' @export
 ratlas::scale_okabeito
+#' @importFrom ratlas ggsave2
+#' @export
+ratlas::ggsave2
