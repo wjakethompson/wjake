@@ -71,6 +71,25 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 
+%%% equation spacing
+%\abovedisplayskip=40pt plus 3pt minus 9pt
+%\abovedisplayshortskip=40pt plus 3pt
+%\belowdisplayskip=40pt plus 3pt minus 9pt
+%\belowdisplayshortskip=40pt plus 3pt minus 4pt
+
+%\setlength{\abovedisplayskip}{20pt}
+%\setlength{\belowdisplayskip}{20pt}
+
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{0pt plus 0pt minus 0pt}
+  \setlength\belowdisplayskip{6pt plus 0pt minus 0pt}
+  \setlength\abovedisplayshortskip{0pt plus 0pt minus 0pt}
+  \setlength\belowdisplayshortskip{6pt plus 0pt minus 0pt}
+}
+\makeatother
+
+
 %%% Use protect on footnotes to avoid problems with footnotes in titles
 \let\rmarkdownfootnote\footnote%
 \def\footnote{\protect\rmarkdownfootnote}
