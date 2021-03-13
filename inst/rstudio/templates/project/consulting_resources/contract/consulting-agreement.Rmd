@@ -1,0 +1,297 @@
+---
+params:
+  client:
+    value:
+      name: Patrick M. Moriarty, M.D.
+      company: University of Kansas Medical Center
+      address: 3901 Rainbow Boulevard
+      city: Kansas City, KS 66160
+  payment:
+    value:
+      fee: 200
+      hourly: true
+title: "CONSULTING AGREEMENT"
+output: wjake::consulting_agreement
+knit: bookdown::render_book
+site: "bookdown::bookdown_site"
+mainfont: Source Serif Pro
+fontsize: 11pt
+watermark: false
+---
+
+```{r setup, include = FALSE}
+needed_packages <- c("wjake", "here", "fs", "glue", "pluralize", "english",
+                     "knitr", "kableExtra", "tidyverse", "lubridate", "scales",
+                     "glue")
+load_packages <- function(x) {
+  if (!(x %in% installed.packages())) {
+    if (x == "wjake") {
+      remotes::install_github("wjakethompson/wjake", dependencies = TRUE)
+    } else {
+      install.packages(x, repos = "https://cran.rstudio.com/")
+    }
+  }
+  suppressPackageStartupMessages(require(x, character.only = TRUE))
+}
+vapply(needed_packages, load_packages, logical(1))
+
+# cur_day <- today()
+cur_day <- ymd("2020-12-29")
+completion <- ymd("2021-01-08")
+next_weekday <- function(date, wday = 6, fmt = "%B %d, %Y") {
+  date <- ymd(date)
+  diff <- wday - wday(date)
+  if (diff < 0) diff <- diff + 7
+  return(format(date + diff, fmt))
+}
+```
+
+
+**THIS CONSULTING AGREEMENT (the "Agreement") is dated this `r str_replace(ordinal(day(cur_day)), "([0-9]*)([a-z]*)$", "\\1^\\2^")` day of `r month(cur_day, label = TRUE, abbr = FALSE)`, `r year(cur_day)`.**
+
+\begin{multicols}{2}
+\setlength{\parskip}{0pt}
+
+\fbox{
+  \parbox{\linewidth}{\centering
+    \textbf{CLIENT}
+    \bigskip
+
+    `r params$client$name`
+
+    {\footnotesize `r params$client$company`}
+    \bigskip
+
+    (the ``Client")
+  }
+}
+
+\fbox{
+  \parbox{\linewidth}{\centering
+    \textbf{CONSULTANT}
+    \bigskip
+
+    W. Jake Thompson, Ph.D.
+
+    {\footnotesize Jake Thompson Consulting}
+    \bigskip
+
+    (the ``Consultant")
+  }
+}
+\end{multicols}
+
+## BACKGROUND {-}
+
+A.  The Client is of the opinion that the Consultant has the necessary qualifications, experience and abilities to provide consulting services to the Client.
+B.  The Consultant is agreeable to providing such consulting services to the Client on the terms and conditions set out in this Agreement.
+
+\color{greydivide}\raisebox{.6\baselineskip}{\rule{\linewidth}{0.4pt}}\color{black}
+
+**IN CONSIDERATION OF** the matters described above and of the mutual benefits and obligations set forth in this Agreement, the receipt and sufficiency of which consideration is hereby acknowledged, the Client and the Consultant (individually the "Party" and collectively the "Parties" to this Agreement) agree as follows:
+
+# SERVICES PROVIDED {-}
+
+1. The Client hereby agrees to engage the Consultant to provide the Client with the services described in Exhibit A, the Consultation Estimate, which is attached to and made part of this Agreement (the "Services").
+2. The Services will also include any other consulting tasks which the Parties may agree on. The Consultant hereby agrees to provide such Services to the Client.
+
+# TERM OF AGREEMENT {-}
+
+3. The term of this Agreement (the "Term") will begin on the date of this Agreement and will remain in full force and effect until the earliest of:
+    i. the date the Consultant complete the Services,
+    ii. `r next_weekday(completion + days(21))`, or
+    iii. the date a Party terminates the Agreement as provided below.
+4. The Term may be extended with the written consent of the Parties.
+
+# TERMINATION OF AGREEMENT {-}
+
+5. This Agreement may be terminated:
+    i. without cause, by 10 days' prior written notice by either party, or
+    ii. with cause, immediately upon material breach of any term of this Agreement by either party.
+6. The Client shall promptly pay the Consultant for services performed before the effective date of termination. The Client shall now owe the Consultant compensation for any services performed following such date.
+
+# COMPENSATION {-}
+
+7. The Consultant will charge the Client `r if_else(params$payment$hourly, glue("for the Services at the rate of ${prettyNum(params$payment$fee, big.mark = ',')} USD (US Dollars) per hour"), glue("${prettyNum(params$payment$fee, big.mark = ',')} USD (US Dollars) for the Services"))` (the "Compensation").
+8. The Client will be invoiced when the Services are complete.
+9. Invoices submitted by the Consultant to the Client are due within 30 days of receipt.
+10. In the event that this Agreement is terminated by the Client prior to completion of the Services but where the Services have been partially performed, the Consultant will be entitled to pro rata payment of the Compensation to the date of termination provided that there has been no breach of contract on the part of the Consultant.
+
+# REIMBURSEMENT OF EXPENSES {-}
+
+11. The Consultant will be reimbursed for reasonable and necessary expenses incurred by the Consultant in connection with providing the Services.
+12. All expenses must be pre-approved by the Client.
+13. The Consultant will submit an itemized statement of the Consultant's expenses with the invoice for the Compensation.
+
+# INTEREST ON LATE PAYMENTS {-}
+
+14. If the Client is late paying the Consultant, the Consultant's damages will be difficult to measure. As a reasonable estimate of the damages the Consultant will sustain, and as liquidated damages and not as a penalty, the Client agrees to pay the Consultant an additional 10% per month interest on the amount owed, or the legally allowable maximum, whichever is less.
+
+# CONFIDENTIALITY {-}
+
+15. Confidential information (the "Confidential Information") refers to any data or information relating to the Client, whether business or personal, which would reasonably be considered to be private or proprietary to the Client and that is not generally known and where the release of that Confidential Information could reasonably be expected to cause harm to the Client.
+16. The Consultant agrees that they will not disclose, divulge, reveal, report or use, for any purpose, any Confidential Information which the Consultant has obtained, except as authorized by the Client or as required by law. The obligations of confidentiality will apply during the Term and will survive indefinitely upon termination of this Agreement.
+17. All written and oral information and material disclosed or provided by the Client to the Consultant under this Agreement is Confidential Information regardless of whether it was provided before or after the date of this Agreement or how it was provided to the Consultant.
+
+# OWNERSHIP OF INTELLECTUAL PROPERTY {-}
+
+18. All intellectual property and related material (the "Intellectual Property") that is developed or produced under this Agreement, will be the property of the Consultant. The Client is granted a non-exclusive limited-use license of this Intellectual Property. The license will have a perpetual term and the Client may not transfer it.
+19. Title, copyright, intellectual property rights and distribution rights of the Intellectual Property remain exclusively with the Consultant.
+
+# RETURN OF PROPERTY {-}
+
+20. Upon the expiration or termination of this Agreement, the Consultant will return to the Client any property, documentation, records, or Confidential Information which is the property of the Client.
+
+# INDEPENDENT CONTRACTOR STATUS {-}
+
+21. The Consultant is an independent contractor, and neither the Consultant nor the Consultant's employees or contract personnel are, or will be deemed, the Client's employees. The Consultant and the Client acknowledge that this Agreement does not create a partnership or joint venture between them, and is exclusively a contract for service. In its capacity as an independent contractor, the Consultant agrees and represents, and the Client agrees, as follows:
+    i. The Consultant has the right to perform services for other during the term of this Agreement subject to non-competition provisions set out in this Agreement, if any.
+    ii. The Consultant has the sole right to control and direct the means, manner, and method by which the Services will be performed.
+    iii. The Consultant has the right to perform the Services at any place or location and at such times as the Consultant may determine.
+    iv. The Services will be performed by the Consultant or the Consultant's employees or contract personnel, and the Client will not be required to hire, supervise, or pay any assistants to help the Consultant.
+    v. The Consultant is responsible for paying all ordinary and necessary expenses of its staff.
+    vi. The Client is not required to pay, or make any contributions to, any social security, local, state or federal tax, unemployment compensation, workers' compensation, insurance premium, profit-sharing, pension or any other employee benefit for the Consultant during the Term.
+    vii. The Consultant is responsible for paying, and complying with reporting requirements for, all local, state and federal taxes related to payments made to the Consultant under this Agreement.
+
+# RIGHT OF SUBSTITUTION {-}
+
+22. Except as otherwise provided in this Agreement, the Consultant may, at the Consultant's absolute discretion, engage a third party sub-contractor to perform some or all of the obligations of the Consultant under this Agreement and the Client will not hire or engage any third parties to assist with the provision of the Services.
+23. In the event that the Consultant hires a sub-contractor:
+    i. the Consultant will pay the sub-contractor for its services and the Compensation will remain payable by the Client to the Consultant.
+    ii. for the purposes of the indemnification clause of this Agreement, the sub-contractor is an agent of the Consultant.
+
+# AUTONOMY {-}
+
+24. Except as otherwise provided in this Agreement, the Consultant will have full control over working time, methods, and decision making in relation to provision of the Services in accordance with the Agreement. The Consultant will work autonomously and not at the direction of the Client. However, the Consultant will be responsive to the reasonable needs and concerns of the Client.
+
+# EQUIPMENT {-}
+
+25. Except as otherwise provided in this Agreement, the Consultant will provide at the Consultant's own expense, any and all equipment, software, materials and any other supplies necessary to deliver the Services in accordance with the Agreement.
+
+# NO EXCLUSIVITY {-}
+
+26. The parties acknowledge that this Agreement is non-exclusive and that either Party will be free, during and after the Term, to engage or contract with third parties for the provision of services similar to the Services.
+
+# NOTICE {-}
+
+27. All notices, requests, demands or other communications required or permitted by the terms of this Agreement will be given in writing and delivered to the Parties at the following addresses:
+
+    i. `r params$client$name`  
+        `r params$client$address`  
+        `r params$client$city`
+    
+    ii. W. Jake Thompson, Ph.D.  
+        12261 S. Crest Drive  
+        Olathe, KS 66061
+
+    or to such other address as either Party may from time to time notify the other, and will deemed to be properly delivered (a) immediately upon being served personally, (b) two days after being deposit with the postal service is served by registered mail, or (c) the following day after being deposited with an overnight courier.
+
+# INDEMNIFICATION {-}
+
+28. Except to the extent paid in settlement from any applicable insurance policies, and to the extent permitted by applicable law, each Party agrees to indemnify and hold harmless the other Party, and its respective affiliates, officers, agents, employees, and permitted successors and assigns against any and all claims, losses, damages, liabilities, penalties, punitive damages, expenses, reasonable legal fees and costs of any kind or amount whatsoever, which result from or arise out of any act or omission of the indemnifying party, its respective affiliates, officers, agents, employees, and permitted successors and assigns that occurs in connection with this Agreement. This indemnification will survive the termination of this Agreement.
+
+# LIMITED LIABILITY {-}
+
+29. This provisiion allocates the risks under this Agreement between the Consultant and the Client. The Consultant's pricing reflects the allocation of risk and limitation of liability specified below.
+30. The Consultant's total liability to the Client under this Agreement for damages, costs and expenses will not exceed the compensation received by the Consultant under this Agreement. However, the Consultant will remain liable for bodily injury or personal property damage resulting from grossly negligent or willful actions of the Consultant or the Consultant's employees or agents while on the Client's premises to the extent such action or omissions were not caused by the Client.
+31. NEITHER PARTY TO THIS AGREEMENT WILL BE LIABLE FOR THE OTHER'S LOST PROFITS OR SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION IN CONTRACT OR TORT, EVEN IF THE PARTY HAS BEEN BEEN ADVISED BY THE OTHER PARTY OF THE POSSIBILITY OF SUCH DAMAGES.
+
+# DISPUTES {-}
+
+32. If a dispute arises under or relating to this Agreement, the Parties will try in good faith to settle it through mediation conducted by a mediator to be mutually selected. The Parties will share the costs of the mediator equally. Each party will cooperate fully and fairly with the mediator and will attempt to reach a mutually satisfactory compromise to the dispute.
+33. If the dispute is not resolved within 30 days after it is referred to the mediator, it will be settled by binding arbitration by an arbitrator to be mutually selected. Judgment on the arbitration award may be entered in any court that has jurisdiction over the matter.
+
+# MODIFICATION OF AGREEMENT {-}
+
+34. Any amendment or modification of this Agreement or additional obligation assumed by either Party in connection with this Agreement will only be binding if evidenced in writing signed by each Party or an authorized representative of each Party.
+
+# ENTIRE AGREEMENT {-}
+
+35. This is the entire Agreement between the parties. It replaces and supersedes any and all oral agreements between the parties, as well as any prior writings.
+36. It is agreed that there is no representation, warranty, collateral agreement or condition affecting this Agreement except as expressly provided in this Agreement.
+37. This Agreement may not be amended except in writing as provided for in this Agreement.
+
+# ENUREMENT {-}
+
+38. This Agreement will enure to the benefit of and be binding on the Parties and their respective heirs, executors, administrators and permitted successors and assigns.
+
+# TITLES/HEADINGS {-}
+
+39. Headings are inserted for the convenience of the Parties only and are not to be considered when interpreting this Agreement.
+
+# GENDER {-}
+
+40. Words in the singular mean and include the plural and vice versa. Words in the masculine mean and include the feminine and vice versa.
+
+# GOVERNING LAW {-}
+
+41. The Agreement will be governed by and construed in accordance with the laws of the State of Kansas.
+
+# SEVERABILITY {-}
+
+42. In the event that any of the provisions of this Agreement are held to be invalid or unenforceable in whole or in part, all other provisions will nevertheless continue to be valid and enforceable with the invalid or unenforceable parts severed from the remainder of this Agreement.
+
+# ATTACHED PAPERS {-}
+
+43. Any attached sheet or document shall be regarded as fully contained in this Agreement.
+
+# WAIVER {-}
+
+44. The waiver by either Party of a breach, default, delay, or omission of any of the provisions of this Agreement by the other Party will not be construed as a waiver of any subsequent breach of the same or other provisions.
+
+\color{greydivide}\raisebox{.6\baselineskip}{\rule{\linewidth}{0.4pt}}\color{black}
+
+**IN WITNESS WHEREOF** the Parties have duly affixed their signatures under hand and seal on this `r str_replace(ordinal(day(cur_day)), "([0-9]*)([a-z]*)$", "\\1^\\2^")` day of `r month(cur_day, label = TRUE, abbr = FALSE)`, `r year(cur_day)`.
+
+\bigskip
+\bigskip
+\bigskip
+
+
+\columnratio{0.1,0.7,0.2}
+\begin{paracol}{3}
+\setlength{\parskip}{0pt}
+\setlength{\columnseprule}{0pt}
+\setlength{\columnsep}{0.1em}
+\begin{nthcolumn}{1}
+
+Signed: \hrulefill
+
+\hspace*{0mm}\phantom{Signed: }`r params$client$name`
+
+\hspace*{0mm}\phantom{Signed: }{\footnotesize `r params$client$company`}
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+Signed: \hrulefill
+
+\hspace*{0mm}\phantom{Signed: }W. Jake Thompson, Ph.D.
+
+\hspace*{0mm}\phantom{Signed: }{\footnotesize Jake Thompson Consulting}
+\end{nthcolumn}
+
+\begin{nthcolumn}{2}
+\hrulefill
+
+Date
+
+\phantom{Jake Thompson Consulting}
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\hrulefill
+
+Date
+
+\phantom{Jake Thompson Consulting}
+
+\end{nthcolumn}
+\end{paracol}

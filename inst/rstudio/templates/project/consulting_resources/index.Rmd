@@ -11,7 +11,7 @@ author:
   return-email: \nolinkurl{wjakethompson@gmail.com}
   return-phone: (785) 643-9244
 recepient:
-  name: W Jake Thompson, Ph.D.
+  name: W. Jake Thompson, Ph.D.
   position: Senior Psychometrician
   organization: Accessible Teaching, Learning, and Assessment Systems
   address1: Joseph R. Pearson Hall
@@ -48,7 +48,19 @@ options(knitr.kable.NA = "")
 set_theme(plot_margin = margin(0, 10, 0, 10))
 ```
 
-
+```{r render-agreement, eval = FALSE}
+rmarkdown::render("contract/consulting-agreement.Rmd",
+                  output_format = "wjake::consulting_agreement",
+                  output_file = "_report/consulting-agreement.pdf",
+                  params = list(
+                    client = list(name = rmarkdown::metadata$recepient$name,
+                                  company = rmarkdown::metadata$recepient$organization,
+                                  address = rmarkdown::metadata$recepient$address2,
+                                  city = rmarkdown::metadata$recepient$address3),
+                    payment = list(fee = 200,
+                                   hourly = TRUE)
+                  ))
+```
 
 
 
