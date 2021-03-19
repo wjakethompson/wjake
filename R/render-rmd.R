@@ -90,3 +90,41 @@ consulting_agreement <- function(...) {
 
   base
 }
+
+
+#' Custom Knit function for RStudio
+#'
+#' @inheritParams rmarkdown::render
+#' @param ... Arguments to pass to [bookdown::render_book]
+#'
+#' @export
+knit_with_contract <- function(input, ...) {
+  if (!dir.exists("_report")) dir.create("_report")
+  input_yaml <- rmarkdown::yaml_front_matter(input)
+
+  rmarkdown::render(
+    "contract/consulting-agreement.Rmd",
+    output_format = "wjake::consulting_agreement",
+    output_file = "../_report/consulting-agreement.pdf",
+    params = list(
+      client = list(name = input_yaml$recepient$name,
+                    company = input_yaml$recepient$organization,
+                    address = input_yaml$recepient$address2,
+                    city = input_yaml$recepient$address3),
+      payment = list(fee = 200,
+                     hourly = TRUE)
+    ),
+    envir = globalenv()
+  )
+
+  bookdown::render_book(input, envir = globalenv(), ...)
+
+  files <- fs::dir_ls("_report", regexp = "\\.pdf") %>%
+    stringr::str_subset("full-contract", negate = TRUE) %>%
+    stringr::str_subset("consulting-agreement", negate = TRUE) %>%
+    stringr::str_sort()
+
+  staplr::staple_pdf(input_files = c("_report/consulting-agreement.pdf",
+                                     files),
+                     output_filepath = "_report/full-contract.pdf")
+}

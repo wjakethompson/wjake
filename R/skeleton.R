@@ -27,17 +27,18 @@ consulting_report_skeleton <- function(path) {
   f <- file.path(path, "_bookdown.yml")
   x <- xfun::read_utf8(f)
   xfun::write_utf8(c(sprintf('book_filename: "%s"',
-                             stringr::str_to_title(basename(path))),
+                             paste0(stringr::str_to_title(basename(path)),
+                                    "-Estimate")),
                      x,
                      "",
                      "rmd_files: [",
-                     sprintf('  "%s.Rmd"', tolower(basename(path))),
+                     sprintf('  "estimate.Rmd"', tolower(basename(path))),
                      "]"),
                    f)
 
   # rename index.Rmd
   fs::file_move(file.path(path, "index.Rmd"),
-                file.path(path, paste0(tolower(basename(path)), ".Rmd")))
+                file.path(path, "estimate.Rmd"))
 
   TRUE
 }

@@ -9,7 +9,8 @@ test_that("copying consulting_report pdf files works", {
 
   expect_equal(sort(check_files),
                sort(c("bib/refs.bib", "csl/apa.csl", "_bookdown.yml",
-                      paste0(tolower(basename(dir)), ".Rmd"),
+                      "estimate.Rmd",
+                      "contract/consulting-agreement.Rmd",
                       "figures/pre-generated/wjakethompson.png",
                       "figures/pre-generated/wjt-letterhead.pdf",
                       "figures/pre-generated/wjt-letterhead.png",

@@ -26,8 +26,11 @@ Imports:
     magrittr,
     ratlas,
     rlang (>= 0.1.2),
+    rmarkdown,
     rstudioapi,
     scales,
+    staplr,
+    stringr,
     xfun
 Suggests:
     english,
@@ -38,7 +41,6 @@ Suggests:
     pluralize,
     roxygen2 (>= 6.1.1),
     spelling,
-    stringr,
     testthat,
     usethis,
     vdiffr,

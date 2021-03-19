@@ -15,8 +15,10 @@ test_that("consulting_report renders", {
 
   consulting_report_skeleton(dir)
   rmd_name <- tolower(basename(dir))
-  suppressWarnings(bookdown::render_book(paste0(rmd_name, ".Rmd"), quiet = TRUE,
-                                         clean_envir = FALSE))
+  suppressWarnings(knit_with_contract("estimate.Rmd", quiet = TRUE,
+                                      clean_envir = FALSE))
   expect_true(file.exists(paste0("_report/", stringr::str_to_title(rmd_name),
-                                 ".pdf")))
+                                 "-Estimate.pdf")))
+  expect_true(file.exists(paste0("_report/consulting-agreement.pdf")))
+  expect_true(file.exists("_report/full-contract.pdf"))
 })
