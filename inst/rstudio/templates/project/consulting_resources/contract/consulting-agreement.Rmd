@@ -25,8 +25,8 @@ watermark: false
 
 ```{r setup, include = FALSE}
 needed_packages <- c("wjake", "here", "fs", "glue", "pluralize", "english",
-                     "knitr", "kableExtra", "tidyverse", "lubridate", "scales",
-                     "glue")
+                     "knitr", "kableExtra", "lubridate", "stringr", "scales",
+                     "dplyr", "glue")
 load_packages <- function(x) {
   if (!(x %in% installed.packages())) {
     if (x == "wjake") {
@@ -44,12 +44,12 @@ completion <- params$payment$complete
 if (length(cur_day) > 1) {
   cur_day <- cur_day$value
 } else {
-  cur_day <- lubridate::ymd(cur_day)
+  cur_day <- ymd(cur_day)
 }
 if (length(completion) > 1) {
   completion <- completion$value
 } else {
-  completion <- lubridate::ymd(completion)
+  completion <- ymd(completion)
 }
 next_weekday <- function(date, wday = 6, fmt = "%B %d, %Y") {
   date <- ymd(date)

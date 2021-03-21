@@ -33,6 +33,7 @@ Imports:
     stringr,
     xfun
 Suggests:
+    dplyr,
     english,
     fs,
     glue,
