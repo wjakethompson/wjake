@@ -36,6 +36,10 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
+      - name: macOS system dependencies
+        if: runner.os == "macOS"
+        run: brew cask install xquartz
+
       - name: Install dependencies
         run: |
           install.packages(c("remotes"))
