@@ -4,11 +4,13 @@
 \alias{knit_with_contract}
 \title{Custom Knit function for RStudio}
 \usage{
-knit_with_contract(input, ...)
+knit_with_contract(input, quiet = FALSE, ...)
 }
 \arguments{
 \item{input}{The input file to be rendered. This can be an R script (.R),
 an R Markdown document (.Rmd), or a plain markdown document.}
+
+\item{quiet}{An option to suppress printing of the pandoc command line.}
 
 \item{...}{Arguments to pass to \link[bookdown:render_book]{bookdown::render_book}}
 }

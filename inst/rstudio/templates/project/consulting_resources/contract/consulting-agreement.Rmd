@@ -18,7 +18,7 @@ title: "CONSULTING AGREEMENT"
 output: wjake::consulting_agreement
 knit: rmarkdown::render
 site: "bookdown::bookdown_site"
-mainfont: Source Serif Pro
+mainfont: Arial
 fontsize: 11pt
 watermark: false
 ---
