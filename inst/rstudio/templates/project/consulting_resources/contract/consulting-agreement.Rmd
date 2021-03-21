@@ -2,17 +2,21 @@
 params:
   client:
     value:
-      name: Patrick M. Moriarty, M.D.
-      company: University of Kansas Medical Center
-      address: 3901 Rainbow Boulevard
-      city: Kansas City, KS 66160
+      name: W. Jake Thompson
+      company: Accessible Teaching, Learning, and Assessment Systems
+      building: Joseph R. Pearson Hall
+      address: 1122 West Campus Road
+      city: Lawrence, KS
+      email: jakethompson\@ku.edu
   payment:
     value:
       fee: 200
       hourly: true
+      date: !r lubridate::today()
+      complete: !r lubridate::today() + lubridate::days(7)
 title: "CONSULTING AGREEMENT"
 output: wjake::consulting_agreement
-knit: bookdown::render_book
+knit: rmarkdown::render
 site: "bookdown::bookdown_site"
 mainfont: Source Serif Pro
 fontsize: 11pt
@@ -35,9 +39,18 @@ load_packages <- function(x) {
 }
 vapply(needed_packages, load_packages, logical(1))
 
-# cur_day <- today()
-cur_day <- ymd("2020-12-29")
-completion <- ymd("2021-01-08")
+cur_day <- params$payment$date
+completion <- params$payment$complete
+if (length(cur_day) > 1) {
+  cur_day <- cur_day$value
+} else {
+  cur_day <- lubridate::ymd(cur_day)
+}
+if (length(completion) > 1) {
+  completion <- completion$value
+} else {
+  completion <- lubridate::ymd(completion)
+}
 next_weekday <- function(date, wday = 6, fmt = "%B %d, %Y") {
   date <- ymd(date)
   diff <- wday - wday(date)
@@ -145,7 +158,7 @@ B.  The Consultant is agreeable to providing such consulting services to the Cli
 # INDEPENDENT CONTRACTOR STATUS {-}
 
 21. The Consultant is an independent contractor, and neither the Consultant nor the Consultant's employees or contract personnel are, or will be deemed, the Client's employees. The Consultant and the Client acknowledge that this Agreement does not create a partnership or joint venture between them, and is exclusively a contract for service. In its capacity as an independent contractor, the Consultant agrees and represents, and the Client agrees, as follows:
-    i. The Consultant has the right to perform services for other during the term of this Agreement subject to non-competition provisions set out in this Agreement, if any.
+    i. The Consultant has the right to perform services for others during the term of this Agreement subject to non-competition provisions set out in this Agreement, if any.
     ii. The Consultant has the sole right to control and direct the means, manner, and method by which the Services will be performed.
     iii. The Consultant has the right to perform the Services at any place or location and at such times as the Consultant may determine.
     iv. The Services will be performed by the Consultant or the Consultant's employees or contract personnel, and the Client will not be required to hire, supervise, or pay any assistants to help the Consultant.
@@ -177,14 +190,26 @@ B.  The Consultant is agreeable to providing such consulting services to the Cli
 27. All notices, requests, demands or other communications required or permitted by the terms of this Agreement will be given in writing and delivered to the Parties at the following addresses:
 
     i. `r params$client$name`  
+        `r params$client$building`  
         `r params$client$address`  
-        `r params$client$city`
+        `r params$client$city`  
+        `r params$client$email`
     
     ii. W. Jake Thompson, Ph.D.  
         12261 S. Crest Drive  
-        Olathe, KS 66061
+        Olathe, KS 66061  
+        wjakethompson\@gmail.com
 
-    or to such other address as either Party may from time to time notify the other, and will deemed to be properly delivered (a) immediately upon being served personally, (b) two days after being deposit with the postal service is served by registered mail, or (c) the following day after being deposited with an overnight courier.
+    or to such other address as either Party may from time to time notify the other, and will be deemed to be properly delivered:
+    
+    (a) immediately upon being served personally,
+    (b) two days after being deposited with the postal service by registered mail,
+    (c) the following day after being deposited with an overnight courier, or
+    (d) if delivered by email,
+        i. when the sender receives an automated message confirming delivery; or
+        ii. One hour after the time sent (as recorded on the device from which the sendor sent the email) unless the sender receives an automated message that the email has not been delivered,  
+
+    whichever happens first.
 
 # INDEMNIFICATION {-}
 
@@ -198,7 +223,7 @@ B.  The Consultant is agreeable to providing such consulting services to the Cli
 
 # DISPUTES {-}
 
-32. If a dispute arises under or relating to this Agreement, the Parties will try in good faith to settle it through mediation conducted by a mediator to be mutually selected. The Parties will share the costs of the mediator equally. Each party will cooperate fully and fairly with the mediator and will attempt to reach a mutually satisfactory compromise to the dispute.
+32. If a dispute arises under or relating to this Agreement, the Parties shall try in good faith to settle it through mediation conducted by a mediator to be mutually selected. The Parties will share the costs of the mediator equally. Each party will cooperate fully and fairly with the mediator and will attempt to reach a mutually satisfactory compromise to the dispute.
 33. If the dispute is not resolved within 30 days after it is referred to the mediator, it will be settled by binding arbitration by an arbitrator to be mutually selected. Judgment on the arbitration award may be entered in any court that has jurisdiction over the matter.
 
 # MODIFICATION OF AGREEMENT {-}
@@ -295,3 +320,15 @@ Date
 
 \end{nthcolumn}
 \end{paracol}
+
+\newpage
+\addtocounter{page}{-1}
+\thispagestyle{empty}
+
+\vspace*{\fill}
+\begin{center}\Huge\bfseries
+Exhibit A:  
+
+Consultation Estimate
+\end{center}
+\vspace*{\fill}

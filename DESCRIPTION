@@ -38,6 +38,7 @@ Suggests:
     glue,
     here,
     kableExtra,
+    lubridate,
     pluralize,
     roxygen2 (>= 6.1.1),
     spelling,

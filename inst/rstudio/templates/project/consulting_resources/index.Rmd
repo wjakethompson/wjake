@@ -10,6 +10,10 @@ author:
   return-address: 12261 S Crest Drive \bullet\ Olathe, KS 66061
   return-email: \nolinkurl{wjakethompson@gmail.com}
   return-phone: (785) 643-9244
+  fee: 200
+  hourly: true
+  agree_date: "2015-07-17"
+  complete_date: "2016-09-04"
 recepient:
   name: W. Jake Thompson, Ph.D.
   position: Senior Psychometrician
@@ -17,6 +21,7 @@ recepient:
   address1: Joseph R. Pearson Hall
   address2: 1122 West Campus Road, Room 437
   address3: Lawrence, KS 66045
+  email: jakethompson\@ku.edu
 output: wjake::consulting_report
 bibliography: ["bib/refs.bib", "bib/packages.bib"]
 biblio-style: apa
@@ -31,7 +36,7 @@ watermark: false
 
 ```{r setup, include = FALSE}
 needed_packages <- c("wjake", "here", "fs", "glue", "pluralize", "english",
-                     "knitr", "kableExtra", "ggplot2")
+                     "knitr", "kableExtra", "ggplot2", "lubridate", "ratlas")
 load_packages <- function(x) {
   if (!(x %in% installed.packages())) {
     if (x == "wjake") {
@@ -44,10 +49,57 @@ load_packages <- function(x) {
 }
 vapply(needed_packages, load_packages, logical(1))
 
+complete_date <- ymd(rmarkdown::metadata$author$complete_date)
+
 options(knitr.kable.NA = "")
 set_theme(plot_margin = margin(0, 10, 0, 10))
 ```
 
+Introductory paragraph.
+
+# Analyses to be Conducted
+
+Summary of analyses.
+
+# Timeline and Deliverables
+
+I currently estimate approximately `r round((complete_date - today()) / dweeks(1), digits = 0)` weeks to complete the analyses outlined above and develop a report of the findings. I can begin this work upon approval of this estimate with an estimated completion date of `r glue("{month(complete_date, label = TRUE, abbr = FALSE)} {day(complete_date)}, {year(complete_date)}")`. Upon completion of the report, a private GitHub repository will be shared with the project staff. Alternatively, a compressed zip folder of the GitHub repository can also be provided upon request. The repository will contain the following:
+
+* The original and other associated files that were provided by the project staff
+* R scripts that can be used to replicate all analyses
+* Data visualizations to illustrate the results of the analyses
+* The completed report
+
+A PDF of the final report will also be provided by email to project staff.
+
+# Estimated Cost
+
+The cost estimate for the above outlined activities are based on the expected hours for each activity. All work is quoted at a consulting rate of \$`r rmarkdown::metadata$author$fee`/hour.\
+\
+
+```{r cost-estimate}
+est_time <- tribble(
+  ~task,                                                          ~hours,
+  "Report Development",                                               5L
+)
+
+est_time %>%
+  fmt_table() %>%
+  kbl(align = c("l", "c"), booktabs = TRUE, linesep = "", escape = FALSE,
+      col.names = c("Task", "Hours")) %>%
+  kable_styling(latex_options = "HOLD_position", full_width = TRUE) %>%
+  column_spec(1, width = "40em") %>%
+  row_spec(0, align = "c")
+```
+\
+The total estimated time for this project is `r sum(est_time$hours)` hours. At \$`r rmarkdown::metadata$author$fee`/hour, the total cost is estimated to be \$`r sum(est_time$hours) * rmarkdown::metadata$author$fee`. In addition, I would expect to be included on any publications or conference presentations that utilize this work.
+
+If any clarifications or modifications are needed for this estimate, please feel free to contact wjakethompson\@gmail.com.\
+\
+Thank you,\
+\
+\
+W. Jake Thompson, Ph.D.
 
 \newpage
 

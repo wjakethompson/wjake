@@ -109,10 +109,14 @@ knit_with_contract <- function(input, ...) {
     params = list(
       client = list(name = input_yaml$recepient$name,
                     company = input_yaml$recepient$organization,
+                    building = input_yaml$recepient$address1,
                     address = input_yaml$recepient$address2,
-                    city = input_yaml$recepient$address3),
-      payment = list(fee = 200,
-                     hourly = TRUE)
+                    city = input_yaml$recepient$address3,
+                    email = input_yaml$recepient$email),
+      payment = list(fee = input_yaml$author$fee,
+                     hourly = input_yaml$author$hourly,
+                     date = input_yaml$author$agree_date,
+                     complete = input_yaml$author$complete_date)
     ),
     envir = globalenv()
   )
