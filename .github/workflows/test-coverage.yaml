@@ -38,7 +38,7 @@ jobs:
 
       - name: macOS system dependencies
         if: runner.os == 'macOS'
-        run: brew cask install xquartz
+        run: brew install --cask xquartz
 
       - name: Install dependencies
         run: |
