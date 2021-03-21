@@ -98,7 +98,7 @@ consulting_agreement <- function(...) {
 #' @param ... Arguments to pass to [bookdown::render_book]
 #'
 #' @export
-knit_with_contract <- function(input, ...) {
+knit_with_contract <- function(input, quiet = FALSE, ...) {
   if (!dir.exists("_report")) dir.create("_report")
   input_yaml <- rmarkdown::yaml_front_matter(input)
 
@@ -118,10 +118,10 @@ knit_with_contract <- function(input, ...) {
                      date = input_yaml$author$agree_date,
                      complete = input_yaml$author$complete_date)
     ),
-    envir = globalenv()
+    quiet = quiet, envir = globalenv()
   )
 
-  bookdown::render_book(input, envir = globalenv(), ...)
+  bookdown::render_book(input, quiet = quiet, envir = globalenv(), ...)
 
   files <- fs::dir_ls("_report", regexp = "\\.pdf") %>%
     stringr::str_subset("full-contract", negate = TRUE) %>%
