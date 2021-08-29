@@ -31,14 +31,14 @@ gt_theme_wjake <- function(gt_dat, bg_color = "#F0F0F0", ...) {
     gt::tab_style(style = gt::cell_borders(sides = "bottom",
                                            color = "transparent",
                                            weight = gt::px(2)),
-                  locations = gt::cells_body(columns = TRUE,
+                  locations = gt::cells_body(columns = gt::everything(),
                                              rows = nrow(gt_dat$`_data`))) %>%
     gt::tab_style(style = list(gt::cell_text(weight = "bold", align = "center",
                                              v_align = "middle"),
                                gt::cell_borders(sides = "bottom",
                                                 color = "black",
                                                 weight = gt::px(3))),
-                  locations = gt::cells_column_labels(TRUE)) %>%
+                  locations = gt::cells_column_labels(gt::everything())) %>%
     gt::tab_style(style = gt::cell_fill(color = bg_color),
                   locations = list(gt::cells_body(columns = gt::everything(),
                                                   rows = gt::everything())))
