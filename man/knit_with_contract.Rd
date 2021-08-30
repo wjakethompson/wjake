@@ -10,7 +10,10 @@ knit_with_contract(input, quiet = FALSE, ...)
 \item{input}{The input file to be rendered. This can be an R script (.R),
 an R Markdown document (.Rmd), or a plain markdown document.}
 
-\item{quiet}{An option to suppress printing of the pandoc command line.}
+\item{quiet}{An option to suppress printing during rendering from knitr,
+pandoc command line and others. To only suppress printing of the last
+"Output created: " message, you can set \code{rmarkdown.render.message} to
+\code{FALSE}}
 
 \item{...}{Arguments to pass to \link[bookdown:render_book]{bookdown::render_book}}
 }

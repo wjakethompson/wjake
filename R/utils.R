@@ -19,6 +19,13 @@ wjake_file <- function(...) {
 }
 
 # Announcement helpers (based on hugodown:::tidy_pleased()) --------------------
+#' Create an announcement adjective
+#'
+#' @return A character string
+#' @export
+#'
+#' @examples
+#' announce()
 announce <- function () {
   phrases <- list(chuffed = c(""),
                   pleased = c("", "most", "very", "extremely", "well"),
