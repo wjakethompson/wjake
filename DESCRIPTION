@@ -19,6 +19,7 @@ Imports:
     colorspace,
     extrafont,
     ggplot2 (>= 3.3.2),
+    ggtext,
     grDevices,
     gt,
     hrbrthemes,
@@ -54,4 +55,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
