@@ -22,9 +22,12 @@
 theme_wjake <- function(base_family = "Arial Narrow", ...) {
   ret <- hrbrthemes::theme_ipsum(base_family = base_family, ...)
 
-  ret <- ret + ggplot2::theme(legend.background = ggplot2::element_blank())
-  ret <- ret + ggplot2::theme(legend.key = ggplot2::element_blank())
-  ret <- ret + ggplot2::theme(legend.position = "bottom")
+  ret <- ret + ggplot2::theme(legend.background = ggplot2::element_blank(),
+                              legend.key = ggplot2::element_blank(),
+                              legend.position = "bottom",
+                              strip.text = ggtext::element_markdown(size = 12),
+                              axis.title.x = ggtext::element_markdown(),
+                              axis.title.y = ggtext::element_markdown())
 
   ret
 }
@@ -35,8 +38,9 @@ theme_wjake <- function(base_family = "Arial Narrow", ...) {
 #'
 #' @param family,face,size,color font family name, face, size and color
 #' @export
-update_geom_font_defaults <- function(family = "Arial Narrow", face = "plain",
-                                      size = 3.5, color = "#2b2b2b") {
+update_geom_font_defaults <- function(family = "Arial Narrow",
+                                      face = "plain", size = 3.5,
+                                      color = "#2b2b2b") {
   ggplot2::update_geom_defaults("text", list(family = family, face = face,
                                              size = size, color = color))
   ggplot2::update_geom_defaults("label", list(family = family, face = face,
