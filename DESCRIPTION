@@ -1,5 +1,5 @@
 Package: wjake
-Title: Personal R Package for Miscellaneous Theme, Templates, and Functions
+Title: Personal R Package for Miscellaneous Themes, Templates, and Functions
 Version: 0.1.0
 Authors@R: 
     person(given = "W. Jake",
