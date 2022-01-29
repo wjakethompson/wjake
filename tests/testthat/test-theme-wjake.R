@@ -1,5 +1,3 @@
-context("theme-wjake")
-
 thm <- theme_wjake()
 
 test_that("theme_wjake is a theme", {
