@@ -32,7 +32,7 @@ consulting_report_skeleton <- function(path) {
                      x,
                      "",
                      "rmd_files: [",
-                     sprintf('  "estimate.Rmd"', tolower(basename(path))),
+                     paste0('  "estimate.Rmd"'),
                      "]"),
                    f)
 
