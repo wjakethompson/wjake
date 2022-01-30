@@ -7,6 +7,7 @@
 #' @name wjake
 #' @aliases wjake
 #' @import grDevices
+#' @import ggplot2
 #' @importFrom rlang .data
 NULL
 
