@@ -19,15 +19,18 @@
 #'        caption = "Brought to you by the letter 'g'") +
 #'   theme_wjake()
 #' }
-theme_wjake <- function(base_family = "Arial Narrow", ...) {
-  ret <- hrbrthemes::theme_ipsum(base_family = base_family, ...)
+theme_wjake <- function(base_family = "Arial Narrow", base_size = 11.5, ...) {
+  ret <- hrbrthemes::theme_ipsum(base_family = base_family,
+                                 base_size = base_size, ...)
 
-  ret <- ret + ggplot2::theme(legend.background = ggplot2::element_blank(),
-                              legend.key = ggplot2::element_blank(),
-                              legend.position = "bottom",
-                              strip.text = ggtext::element_markdown(size = 12),
-                              axis.title.x = ggtext::element_markdown(),
-                              axis.title.y = ggtext::element_markdown())
+  ret <- ret +
+    ggplot2::theme(legend.background = ggplot2::element_blank(),
+                   legend.key = ggplot2::element_blank(),
+                   legend.position = "bottom",
+                   strip.text.x = ggtext::element_markdown(),
+                   strip.text.y = ggtext::element_markdown(),
+                   axis.title.x = ggtext::element_markdown(),
+                   axis.title.y = ggtext::element_markdown())
 
   ret
 }
