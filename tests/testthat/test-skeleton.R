@@ -8,7 +8,7 @@ test_that("copying consulting_report pdf files works", {
   check_files <- list.files(dir, recursive = TRUE)
 
   expect_equal(sort(check_files),
-               sort(c("bib/refs.bib", "csl/apa.csl", "_bookdown.yml",
+               sort(c("bib/refs.bib", "csl/apa.csl",
                       "estimate.Rmd",
                       "contract/consulting-agreement.Rmd",
                       "figures/pre-generated/wjakethompson.png",

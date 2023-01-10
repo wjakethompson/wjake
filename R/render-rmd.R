@@ -121,7 +121,15 @@ knit_with_contract <- function(input, quiet = FALSE, ...) {
     quiet = quiet, envir = globalenv()
   )
 
-  bookdown::render_book(input, quiet = quiet, envir = globalenv(), ...)
+  rmarkdown::render(
+    input,
+    output_format = "wjake::consulting_report",
+    output_file = "_report/consulting-scope.pdf",
+    params = list(
+      watermark = "Exhibit A"
+    ),
+    quiet = quiet, envir = globalenv()
+  )
 
   files <- fs::dir_ls("_report", regexp = "\\.pdf") %>%
     stringr::str_subset("full-contract", negate = TRUE) %>%

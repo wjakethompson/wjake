@@ -1,9 +1,12 @@
 ---
+params:
+  watermark: false
 title: "Project Title"
 shorttitle: "Short Project Title"
 subtitle: "Type of Report"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
-knit: wjake::knit_with_contract
+knit: rmarkdown::render
+# knit: wjake::knit_with_contract
 site: "bookdown::bookdown_site"
 author:
   name: W. Jake Thompson, Ph.D.
@@ -31,12 +34,12 @@ csl: csl/apa.csl
 link-citation: yes
 mainfont: Arial
 fontsize: 11pt
-watermark: false
 ---
 
 ```{r setup, include = FALSE}
 needed_packages <- c("wjake", "here", "fs", "glue", "pluralize", "english",
-                     "knitr", "kableExtra", "ggplot2", "lubridate", "ratlas")
+                     "knitr", "kableExtra", "ggplot2", "lubridate",
+                     "showtext", "conflicted")
 load_packages <- function(x) {
   if (!(x %in% installed.packages())) {
     if (x == "wjake") {
@@ -49,10 +52,17 @@ load_packages <- function(x) {
 }
 vapply(needed_packages, load_packages, logical(1))
 
+conflict_prefer("filter", "dplyr")
+conflict_prefer("group_rows", "kableExtra")
+conflict_prefer("set_theme", "wjake")
+
 complete_date <- ymd(rmarkdown::metadata$author$complete_date)
 
+showtext_auto()
+showtext_opts(dpi = 320)
+
 options(knitr.kable.NA = "")
-set_theme(plot_margin = margin(0, 10, 0, 10))
+set_theme(base_family = "Source Sans Pro", plot_margin = margin(0, 10, 0, 10))
 ```
 
 Introductory paragraph.
@@ -84,7 +94,6 @@ est_time <- tribble(
 )
 
 est_time %>%
-  fmt_table() %>%
   kbl(align = c("l", "c"), booktabs = TRUE, linesep = "", escape = FALSE,
       col.names = c("Task", "Hours")) %>%
   kable_styling(latex_options = "HOLD_position", full_width = TRUE) %>%

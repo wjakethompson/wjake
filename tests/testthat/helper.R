@@ -12,7 +12,6 @@ create_local_rmd_dir <- function(dir = fs::file_temp(pattern = "testproj"),
   old_wd <- getwd()
 
   withr::defer({
-    usethis::ui_done("Deleting temporary project: {usethis::ui_path(dir)}")
     fs::dir_delete(dir)
   },
   envir = env
@@ -21,12 +20,14 @@ create_local_rmd_dir <- function(dir = fs::file_temp(pattern = "testproj"),
     usethis::create_project(dir, rstudio = rstudio, open = FALSE)
   )
 
-  withr::defer(usethis::proj_set(old_project, force = TRUE), envir = env)
-  usethis::proj_set(dir)
+  withr::defer(
+    usethis::ui_silence(usethis::proj_set(old_project, force = TRUE)),
+    envir = env)
+  usethis::ui_silence(
+    usethis::proj_set(dir)
+  )
 
   withr::defer({
-    usethis::ui_done(glue::glue("Restoring original working directory: ",
-                                "{usethis::ui_path(old_wd)}"))
     setwd(old_wd)
   },
   envir = env

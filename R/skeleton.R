@@ -23,19 +23,6 @@ consulting_report_skeleton <- function(path) {
   logo_target <- file.path(path, "figures", "pre-generated", logos)
   file.copy(logo_source, logo_target)
 
-  # add book_filename to _bookdown.yml and default to the base path name
-  f <- file.path(path, "_bookdown.yml")
-  x <- xfun::read_utf8(f)
-  xfun::write_utf8(c(sprintf('book_filename: "%s"',
-                             paste0(stringr::str_to_title(basename(path)),
-                                    "-Estimate")),
-                     x,
-                     "",
-                     "rmd_files: [",
-                     paste0('  "estimate.Rmd"'),
-                     "]"),
-                   f)
-
   # rename index.Rmd
   fs::file_move(file.path(path, "index.Rmd"),
                 file.path(path, "estimate.Rmd"))
