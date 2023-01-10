@@ -5,7 +5,7 @@
 \title{Set global plot theme options}
 \usage{
 set_theme(
-  base_family = "Arial Narrow",
+  base_family = "Source Sans Pro",
   v_option = c("viridis", "magma", "inferno", "plasma", "cividis", "A", "B", "C", "D",
     "E"),
   d_scale = c("okabeito", "wjake"),
@@ -13,7 +13,7 @@ set_theme(
 )
 }
 \arguments{
-\item{base_family}{base font family and size}
+\item{base_family}{Base font family.}
 
 \item{v_option}{Viridis scale for continuous variables. See
 \link[ggplot2:scale_viridis]{ggplot2::scale_colour_viridis_c}.}

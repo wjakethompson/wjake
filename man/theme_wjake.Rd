@@ -4,10 +4,10 @@
 \alias{theme_wjake}
 \title{Personalized ggplot2 theme}
 \usage{
-theme_wjake(base_family = "Arial Narrow", ...)
+theme_wjake(base_family = "Source Sans Pro", base_size = 11.5, ...)
 }
 \arguments{
-\item{base_family}{base font family and size}
+\item{base_family, base_size}{base font family and size}
 
 \item{...}{Additional parameters passed to \link[hrbrthemes:theme_ipsum]{hrbrthemes::theme_ipsum}}
 }
