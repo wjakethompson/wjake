@@ -19,7 +19,7 @@
 #'        caption = "Brought to you by the letter 'g'") +
 #'   theme_wjake()
 #' }
-theme_wjake <- function(base_family = "Arial Narrow", base_size = 11.5, ...) {
+theme_wjake <- function(base_family = "Source Sans Pro", base_size = 11.5, ...) {
   ret <- hrbrthemes::theme_ipsum(base_family = base_family,
                                  base_size = base_size, ...)
 
@@ -30,7 +30,9 @@ theme_wjake <- function(base_family = "Arial Narrow", base_size = 11.5, ...) {
                    strip.text.x = ggtext::element_markdown(),
                    strip.text.y = ggtext::element_markdown(),
                    axis.title.x = ggtext::element_markdown(),
-                   axis.title.y = ggtext::element_markdown())
+                   axis.title.y = ggtext::element_markdown(),
+                   axis.text.x = ggtext::element_markdown(),
+                   axis.text.y = ggtext::element_markdown())
 
   ret
 }
@@ -41,7 +43,7 @@ theme_wjake <- function(base_family = "Arial Narrow", base_size = 11.5, ...) {
 #'
 #' @param family,face,size,color font family name, face, size and color
 #' @export
-update_geom_font_defaults <- function(family = "Arial Narrow",
+update_geom_font_defaults <- function(family = "Source Sans Pro",
                                       face = "plain", size = 3.5,
                                       color = "#2b2b2b") {
   ggplot2::update_geom_defaults("text", list(family = family, face = face,
@@ -53,14 +55,14 @@ update_geom_font_defaults <- function(family = "Arial Narrow",
 
 #' Set global plot theme options
 #'
-#' @inheritParams hrbrthemes::theme_ipsum
+#' @param base_family Base font family.
 #' @param v_option Viridis scale for continuous variables. See
 #'   [ggplot2::scale_colour_viridis_c].
 #' @param d_scale Discrete color scale to use.
 #' @param ... Additional parameters passed to [theme_wjake()].
 #'
 #' @export
-set_theme <- function(base_family = "Arial Narrow",
+set_theme <- function(base_family = "Source Sans Pro",
                       v_option = c("viridis", "magma", "inferno", "plasma",
                                    "cividis", "A", "B", "C", "D", "E"),
                       d_scale = c("okabeito", "wjake"), ...) {

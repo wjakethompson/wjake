@@ -5,29 +5,18 @@
 }
 
 .onAttach <- function(libname, pkgname) {
-  if (.Platform$OS.type == "windows") {
-    if (interactive()) {
-      packageStartupMessage("Registering Windows fonts with R")
-    }
-    extrafont::loadfonts("win", quiet = TRUE)
-  }
-
   if (getOption("wjake.loadfonts", default = FALSE)) {
-    if (interactive()) {
-      packageStartupMessage("Registering PDF & PostScript fonts with R")
+    if (!("Source Sans Pro" %in% showtextdb::font_installed())) {
+      showtextdb::font_install(showtextdb::google_fonts("Source Sans Pro"))
     }
-    extrafont::loadfonts("pdf", quiet = TRUE)
-    extrafont::loadfonts("postscript", quiet = TRUE)
-  }
 
-  fnt <- extrafont::fonttable()
-  if (!any(grepl("Arial[ ]Narrow", fnt$FamilyName))) {
-    msg1 <- glue::glue("NOTE: The Arial Narrow font is required to use these ",
-                       "themes.")
-    msg2 <- glue::glue("      If Arial Narrow is not on your system, please ",
-                       "see https://bit.ly/arialnarrow")
-    packageStartupMessage(msg1)
-    packageStartupMessage(msg2)
+    system.file("fonts", "Source Sans Pro",
+                c("regular.ttf", "bold.ttf", "italic.ttf", "bolditalic.ttf"),
+                package = "showtextdb") -> font_files
+
+    sysfonts::font_add(family = "Source Sans Pro",
+                       regular = font_files[1], bold = font_files[2],
+                       italic = font_files[3], bolditalic = font_files[4])
   }
 }
 # nocov end
