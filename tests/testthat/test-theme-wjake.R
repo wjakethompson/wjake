@@ -4,13 +4,13 @@ test_that("theme_wjake is a theme", {
   expect_s3_class(thm, "theme")
 })
 
-test_that("theme_wjake uses Arial Narrow font", {
-  expect_equal(thm$text$family, "Arial Narrow")
-  expect_equal(thm$plot.title$family, "Arial Narrow")
-  expect_equal(thm$plot.subtitle$family, "Arial Narrow")
-  expect_equal(thm$plot.caption$family, "Arial Narrow")
-  expect_equal(thm$strip.text$family, "Arial Narrow")
-  expect_equal(thm$axis.title$family, "Arial Narrow")
+test_that("theme_wjake uses Source Sans Pro font", {
+  expect_equal(thm$text$family, "Source Sans Pro")
+  expect_equal(thm$plot.title$family, "Source Sans Pro")
+  expect_equal(thm$plot.subtitle$family, "Source Sans Pro")
+  expect_equal(thm$plot.caption$family, "Source Sans Pro")
+  expect_equal(thm$strip.text$family, "Source Sans Pro")
+  expect_equal(thm$axis.title$family, "Source Sans Pro")
   expect_null(thm$axis.text$family)
   expect_null(thm$legend.text$family)
 })
@@ -53,35 +53,35 @@ test_that("theme_wjake grids, axis, and ticks are correct", {
 test_that("update_geom_font_defaults() works", {
   expect_equal(update_geom_font_defaults(),
                ggplot2::update_geom_defaults("text",
-                                             list(family = "Arial Narrow",
+                                             list(family = "Source Sans Pro",
                                                   face = "plain", size = 3.5,
                                                   color = "#2b2b2b")))
 })
 
 # Set theme --------------------------------------------------------------------
 test_that("theme_wjake is a theme", {
-  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
+  local_theme(font = "Source Sans Pro", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
   expect_s3_class(thm, "theme")
 })
 
-test_that("theme_wjake uses Arial Narrow font", {
-  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
+test_that("theme_wjake uses Source Sans Pro font", {
+  local_theme(font = "Source Sans Pro", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
-  expect_equal(thm$text$family, "Arial Narrow")
-  expect_equal(thm$plot.title$family, "Arial Narrow")
-  expect_equal(thm$plot.subtitle$family, "Arial Narrow")
-  expect_equal(thm$plot.caption$family, "Arial Narrow")
-  expect_equal(thm$strip.text$family, "Arial Narrow")
-  expect_equal(thm$axis.title$family, "Arial Narrow")
+  expect_equal(thm$text$family, "Source Sans Pro")
+  expect_equal(thm$plot.title$family, "Source Sans Pro")
+  expect_equal(thm$plot.subtitle$family, "Source Sans Pro")
+  expect_equal(thm$plot.caption$family, "Source Sans Pro")
+  expect_equal(thm$strip.text$family, "Source Sans Pro")
+  expect_equal(thm$axis.title$family, "Source Sans Pro")
   expect_null(thm$axis.text$family)
   expect_null(thm$legend.text$family)
 })
 
 test_that("theme_wjake font sizes are correct", {
-  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
+  local_theme(font = "Source Sans Pro", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
   expect_equal(thm$text$size, 11.5)
@@ -93,7 +93,7 @@ test_that("theme_wjake font sizes are correct", {
 })
 
 test_that("theme_wjake font colors are correct", {
-  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
+  local_theme(font = "Source Sans Pro", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
   expect_equal(thm$text$colour, "black")
@@ -101,7 +101,7 @@ test_that("theme_wjake font colors are correct", {
 })
 
 test_that("theme_wjake grids, axis, and ticks are correct", {
-  local_theme(font = "Arial Narrow", continuous = "D", discrete = "okabeito")
+  local_theme(font = "Source Sans Pro", continuous = "D", discrete = "okabeito")
   thm <- theme_get()
 
   expect_equal(invisible(theme_wjake(grid = FALSE)),
@@ -128,7 +128,7 @@ test_that("theme_wjake grids, axis, and ticks are correct", {
 library(ggplot2)
 
 test_that("magma works", {
-  local_theme(font = "Arial Narrow", continuous = "magma",
+  local_theme(font = "Source Sans Pro", continuous = "magma",
               discrete = "okabeito")
   thm <- theme_get()
 
@@ -144,7 +144,7 @@ test_that("magma works", {
 })
 
 test_that("inferno works", {
-  local_theme(font = "Arial Narrow", continuous = "inferno",
+  local_theme(font = "Source Sans Pro", continuous = "inferno",
               discrete = "okabeito")
   thm <- theme_get()
 
@@ -160,7 +160,7 @@ test_that("inferno works", {
 })
 
 test_that("plasma works", {
-  local_theme(font = "Arial Narrow", continuous = "plasma",
+  local_theme(font = "Source Sans Pro", continuous = "plasma",
               discrete = "okabeito")
   thm <- theme_get()
 
@@ -176,7 +176,7 @@ test_that("plasma works", {
 })
 
 test_that("viridis works", {
-  local_theme(font = "Arial Narrow", continuous = "viridis",
+  local_theme(font = "Source Sans Pro", continuous = "viridis",
               discrete = "okabeito")
   thm <- theme_get()
 
@@ -192,7 +192,7 @@ test_that("viridis works", {
 })
 
 test_that("cividis works", {
-  local_theme(font = "Arial Narrow", continuous = "cividis",
+  local_theme(font = "Source Sans Pro", continuous = "cividis",
               discrete = "okabeito")
   thm <- theme_get()
 
@@ -208,7 +208,7 @@ test_that("cividis works", {
 })
 
 test_that("okabe ito works", {
-  local_theme(font = "Arial Narrow", continuous = "viridis",
+  local_theme(font = "Source Sans Pro", continuous = "viridis",
               discrete = "okabeito")
   thm <- theme_get()
 
@@ -231,7 +231,7 @@ test_that("okabe ito works", {
 })
 
 test_that("wjake works", {
-  local_theme(font = "Arial Narrow", continuous = "viridis", discrete = "wjake")
+  local_theme(font = "Source Sans Pro", continuous = "viridis", discrete = "wjake")
   thm <- theme_get()
 
   df <- data.frame(
