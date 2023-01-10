@@ -26,7 +26,7 @@ wjake_file <- function(...) {
 #'
 #' @examples
 #' announce()
-announce <- function () {
+announce <- function() {
   phrases <- list(chuffed = c(""),
                   pleased = c("", "most", "very", "extremely", "well"),
                   stoked = c(""),

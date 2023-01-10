@@ -10,9 +10,10 @@
       showtextdb::font_install(showtextdb::google_fonts("Source Sans Pro"))
     }
 
-    system.file("fonts", "Source Sans Pro",
-                c("regular.ttf", "bold.ttf", "italic.ttf", "bolditalic.ttf"),
-                package = "showtextdb") -> font_files
+    font_files <-
+      system.file("fonts", "Source Sans Pro",
+                  c("regular.ttf", "bold.ttf", "italic.ttf", "bolditalic.ttf"),
+                  package = "showtextdb")
 
     sysfonts::font_add(family = "Source Sans Pro",
                        regular = font_files[1], bold = font_files[2],

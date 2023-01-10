@@ -21,4 +21,3 @@ test_that("consulting_report renders", {
   expect_true(file.exists(paste0("_report/consulting-agreement.pdf")))
   expect_true(file.exists("_report/full-contract.pdf"))
 })
-

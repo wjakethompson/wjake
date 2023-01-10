@@ -19,7 +19,8 @@
 #'        caption = "Brought to you by the letter 'g'") +
 #'   theme_wjake()
 #' }
-theme_wjake <- function(base_family = "Source Sans Pro", base_size = 11.5, ...) {
+theme_wjake <- function(base_family = "Source Sans Pro", base_size = 11.5,
+                        ...) {
   ret <- hrbrthemes::theme_ipsum(base_family = base_family,
                                  base_size = base_size, ...)
 
@@ -91,11 +92,3 @@ set_theme <- function(base_family = "Source Sans Pro",
           ggplot2.continuous.fill = cont_fill,
           ggplot2.continuous.colour = cont_colr)
 }
-
-#' @rdname ArialNarrow
-#' @md
-#' @title Arial Narrow font name R variable aliases
-#' @description `font_an` == "`Arial Narrow`"
-#' @format length 1 character vector
-#' @export
-font_an <- "Arial Narrow"

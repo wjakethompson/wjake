@@ -231,7 +231,8 @@ test_that("okabe ito works", {
 })
 
 test_that("wjake works", {
-  local_theme(font = "Source Sans Pro", continuous = "viridis", discrete = "wjake")
+  local_theme(font = "Source Sans Pro", continuous = "viridis",
+              discrete = "wjake")
   thm <- theme_get()
 
   df <- data.frame(
