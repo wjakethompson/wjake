@@ -2,12 +2,12 @@
 params:
   client:
     value:
-      name: W. Jake Thompson
-      company: Accessible Teaching, Learning, and Assessment Systems
-      building: Joseph R. Pearson Hall
-      address: 1122 West Campus Road
+      name: Bill Self
+      company: University of Kansas
+      building: Allen Field House
+      address: 1651 Naismith Drive
       city: Lawrence, KS
-      email: jakethompson\@ku.edu
+      email: bclt\@ku.edu
   payment:
     value:
       fee: 200
@@ -19,6 +19,7 @@ output: wjake::consulting_agreement
 knit: rmarkdown::render
 site: "bookdown::bookdown_site"
 mainfont: Arial
+# mainfont: Source Sans Pro
 fontsize: 11pt
 watermark: false
 ---

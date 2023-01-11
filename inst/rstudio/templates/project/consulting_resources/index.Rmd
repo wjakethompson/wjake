@@ -1,6 +1,6 @@
 ---
 params:
-  watermark: false
+  watermark: ""
 title: "Project Title"
 shorttitle: "Short Project Title"
 subtitle: "Type of Report"
@@ -18,13 +18,13 @@ author:
   agree_date: "2015-07-17"
   complete_date: "2016-09-04"
 recepient:
-  name: W. Jake Thompson, Ph.D.
-  position: Senior Psychometrician
-  organization: Accessible Teaching, Learning, and Assessment Systems
-  address1: Joseph R. Pearson Hall
-  address2: 1122 West Campus Road, Room 437
-  address3: Lawrence, KS 66045
-  email: jakethompson\@ku.edu
+  name: Bill Self
+  position: Head Coach
+  organization: University of Kansas
+  address1: Allen Fieldhouse
+  address2: 1651 Naismith Drive
+  address3: Lawrence, KS 66044
+  email: bclt\@ku.edu
 output: wjake::consulting_report
 bibliography: ["bib/refs.bib", "bib/packages.bib"]
 biblio-style: apa
@@ -33,12 +33,15 @@ biblatexoptions:
 csl: csl/apa.csl
 link-citation: yes
 mainfont: Arial
+# mainfont: Source Sans Pro
+# mathfont: Fira Math
 fontsize: 11pt
+watermark: "`r params$watermark`"
 ---
 
 ```{r setup, include = FALSE}
 needed_packages <- c("wjake", "here", "fs", "glue", "pluralize", "english",
-                     "knitr", "kableExtra", "ggplot2", "lubridate",
+                     "knitr", "kableExtra", "ggplot2", "lubridate", "tibble",
                      "showtext", "conflicted")
 load_packages <- function(x) {
   if (!(x %in% installed.packages())) {
@@ -94,6 +97,7 @@ est_time <- tribble(
 )
 
 est_time %>%
+  fmt_table() %>%
   kbl(align = c("l", "c"), booktabs = TRUE, linesep = "", escape = FALSE,
       col.names = c("Task", "Hours")) %>%
   kable_styling(latex_options = "HOLD_position", full_width = TRUE) %>%
@@ -101,7 +105,7 @@ est_time %>%
   row_spec(0, align = "c")
 ```
 \
-The total estimated time for this project is `r sum(est_time$hours)` hours. At \$`r rmarkdown::metadata$author$fee`/hour, the total cost is estimated to be \$`r sum(est_time$hours) * rmarkdown::metadata$author$fee`. In addition, I would expect to be included on any publications or conference presentations that utilize this work.
+The total estimated time for this project is `r sum(est_time$hours)` hours. At \$`r rmarkdown::metadata$author$fee`/hour, the total cost is estimated to be \$`r fmt_count(sum(est_time$hours) * rmarkdown::metadata$author$fee)`. In addition, I would expect to be included on any publications or conference presentations that utilize this work.
 
 If any clarifications or modifications are needed for this estimate, please feel free to contact wjakethompson\@gmail.com.\
 \
