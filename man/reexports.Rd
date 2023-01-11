@@ -14,6 +14,13 @@
 \alias{scale_fill_okabeito}
 \alias{scale_okabeito}
 \alias{ggsave2}
+\alias{fmt_count}
+\alias{fmt_digits}
+\alias{fmt_italic}
+\alias{fmt_kbl}
+\alias{fmt_kbl_header}
+\alias{fmt_table}
+\alias{fmt_prop_pct}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -23,6 +30,6 @@ below to see their documentation.
 \describe{
   \item{hrbrthemes}{\code{\link[hrbrthemes:scale_x_percent]{scale_x_comma}}, \code{\link[hrbrthemes]{scale_x_percent}}, \code{\link[hrbrthemes:scale_x_percent]{scale_y_comma}}, \code{\link[hrbrthemes:scale_x_percent]{scale_y_percent}}}
 
-  \item{ratlas}{\code{\link[ratlas]{ggsave2}}, \code{\link[ratlas]{palette_okabeito}}, \code{\link[ratlas:palette_okabeito]{palette_okabeito_black}}, \code{\link[ratlas:scale_okabeito]{scale_color_okabeito}}, \code{\link[ratlas:scale_okabeito]{scale_color_okabeito}}, \code{\link[ratlas:scale_okabeito]{scale_colour_okabeito}}, \code{\link[ratlas:scale_okabeito]{scale_fill_okabeito}}, \code{\link[ratlas]{scale_okabeito}}}
+  \item{ratlas}{\code{\link[ratlas:formatting]{fmt_count}}, \code{\link[ratlas:formatting]{fmt_digits}}, \code{\link[ratlas]{fmt_italic}}, \code{\link[ratlas]{fmt_kbl}}, \code{\link[ratlas]{fmt_kbl_header}}, \code{\link[ratlas:formatting]{fmt_prop_pct}}, \code{\link[ratlas]{fmt_table}}, \code{\link[ratlas]{ggsave2}}, \code{\link[ratlas]{palette_okabeito}}, \code{\link[ratlas:palette_okabeito]{palette_okabeito_black}}, \code{\link[ratlas:scale_okabeito]{scale_color_okabeito}}, \code{\link[ratlas:scale_okabeito]{scale_color_okabeito}}, \code{\link[ratlas:scale_okabeito]{scale_colour_okabeito}}, \code{\link[ratlas:scale_okabeito]{scale_fill_okabeito}}, \code{\link[ratlas]{scale_okabeito}}}
 }}
 

@@ -35,3 +35,24 @@ ratlas::scale_okabeito
 #' @importFrom ratlas ggsave2
 #' @export
 ratlas::ggsave2
+#' @importFrom ratlas fmt_count
+#' @export
+ratlas::fmt_count
+#' @importFrom ratlas fmt_digits
+#' @export
+ratlas::fmt_digits
+#' @importFrom ratlas fmt_italic
+#' @export
+ratlas::fmt_italic
+#' @importFrom ratlas fmt_kbl
+#' @export
+ratlas::fmt_kbl
+#' @importFrom ratlas fmt_kbl_header
+#' @export
+ratlas::fmt_kbl_header
+#' @importFrom ratlas fmt_table
+#' @export
+ratlas::fmt_table
+#' @importFrom ratlas fmt_prop_pct
+#' @export
+ratlas::fmt_prop_pct
