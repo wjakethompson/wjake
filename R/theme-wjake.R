@@ -32,8 +32,8 @@ theme_wjake <- function(base_family = "Source Sans Pro", base_size = 11.5,
                    strip.text.y = ggtext::element_markdown(),
                    axis.title.x = ggtext::element_markdown(),
                    axis.title.y = ggtext::element_markdown(),
-                   axis.text.x = ggtext::element_markdown(),
-                   axis.text.y = ggtext::element_markdown())
+                   axis.text.x = ggtext::element_markdown(color = "black"),
+                   axis.text.y = ggtext::element_markdown(color = "black"))
 
   ret
 }
