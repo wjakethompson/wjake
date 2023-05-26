@@ -51,7 +51,7 @@ Suggests:
     vdiffr,
     withr
 Remotes:
-    atlas-aai/ratlas
+    atlas-aai/ratlas,
     pridiltal/staplr
 Config/testthat/edition: 3
 Encoding: UTF-8
