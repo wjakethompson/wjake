@@ -136,7 +136,7 @@ knit_with_contract <- function(input, quiet = FALSE, ...) {
     stringr::str_subset("consulting-agreement", negate = TRUE) %>%
     stringr::str_sort()
 
-  staplr::staple_pdf(input_files = c("_report/consulting-agreement.pdf",
-                                     files),
-                     output_filepath = "_report/full-contract.pdf")
+  pdftools::pdf_combine(input = c("_report/consulting-agreement.pdf",
+                                  files),
+                        output = "_report/full-contract.pdf")
 }

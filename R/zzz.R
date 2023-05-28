@@ -5,7 +5,7 @@
 }
 
 .onAttach <- function(libname, pkgname) {
-  if (getOption("wjake.loadfonts", default = FALSE)) {
+  if (getOption("wjake.loadfonts", default = TRUE)) {
     if (!("Source Sans Pro" %in% showtextdb::font_installed())) {
       showtextdb::font_install(showtextdb::google_fonts("Source Sans Pro"))
     }
