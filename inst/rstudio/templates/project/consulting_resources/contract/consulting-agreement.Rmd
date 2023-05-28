@@ -45,16 +45,16 @@ completion <- params$payment$complete
 if (length(cur_day) > 1) {
   cur_day <- cur_day$value
 } else {
-  cur_day <- ymd(cur_day)
+  cur_day <- lubridate::ymd(cur_day)
 }
 if (length(completion) > 1) {
   completion <- completion$value
 } else {
-  completion <- ymd(completion)
+  completion <- lubridate::ymd(completion)
 }
 next_weekday <- function(date, wday = 6, fmt = "%B %d, %Y") {
-  date <- ymd(date)
-  diff <- wday - wday(date)
+  date <- lubridate::ymd(date)
+  diff <- wday - lubridate::wday(date)
   if (diff < 0) diff <- diff + 7
   return(format(date + diff, fmt))
 }
