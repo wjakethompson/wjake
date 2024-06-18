@@ -22,7 +22,8 @@ create_local_rmd_dir <- function(dir = fs::file_temp(pattern = "testproj"),
 
   withr::defer(
     usethis::ui_silence(usethis::proj_set(old_project, force = TRUE)),
-    envir = env)
+    envir = env
+  )
   usethis::ui_silence(
     usethis::proj_set(dir)
   )

@@ -25,7 +25,7 @@ round_to <- function(x, accuracy,
   direction <- rlang::arg_match(direction)
 
 
-  switch (direction,
+  switch(direction,
     nearest = round_nr(x, accuracy),
     up = round_up(x, accuracy),
     down = round_dn(x, accuracy),

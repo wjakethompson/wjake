@@ -101,6 +101,8 @@ pull_package_authors <- function(meta) {
     stringr::str_replace_all("\\n", "") |>
     stringr::str_replace_all(" \\[.*$", "") |>
     knitr::combine_words(sep = " and ", oxford_comma = FALSE)
+
+  return(authors)
 }
 
 format_pkg_title <- function(x) {
@@ -109,8 +111,10 @@ format_pkg_title <- function(x) {
 
 format_pkg_caps <- function(citation) {
   citation |>
-    stringr::str_replace_all("Dynamic Learning Maps", "{Dynamic Learning Maps}") |>
-    stringr::str_replace_all("University of Kansas", "{University of Kansas}") |>
+    stringr::str_replace_all("Dynamic Learning Maps",
+                             "{Dynamic Learning Maps}") |>
+    stringr::str_replace_all("University of Kansas",
+                             "{University of Kansas}") |>
     stringr::str_replace_all("ATLAS", "{ATLAS}") |>
     stringr::str_replace_all("Taylor Swift's", "{Taylor Swift's}") |>
     stringr::str_replace_all(" R ", " {R} ") |>
