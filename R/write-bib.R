@@ -92,8 +92,7 @@ cite_cran_pkg <- function(meta) {
     "}}",
     .sep = "\n"
   ) |>
-    format_pkg_caps() |>
-    cat()
+    format_pkg_caps()
 }
 
 pull_package_authors <- function(meta) {
@@ -122,5 +121,5 @@ format_pkg_caps <- function(citation) {
     stringr::str_replace_all(" R ", " {R} ") |>
     stringr::str_replace_all("Bayesian", "{Bayesian}") |>
     stringr::str_replace_all("(?<!m)Stan", "{Stan}") |>
-    stringr::str_replace_all("TDCMs", "{TDCMs}") |> cat()
+    stringr::str_replace_all("TDCMs", "{TDCMs}")
 }
