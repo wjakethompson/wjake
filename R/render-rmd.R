@@ -131,9 +131,9 @@ knit_with_contract <- function(input, quiet = FALSE, ...) {
     quiet = quiet, envir = globalenv()
   )
 
-  files <- fs::dir_ls("_report", regexp = "\\.pdf") %>%
-    stringr::str_subset("full-contract", negate = TRUE) %>%
-    stringr::str_subset("consulting-agreement", negate = TRUE) %>%
+  files <- fs::dir_ls("_report", regexp = "\\.pdf") |>
+    stringr::str_subset("full-contract", negate = TRUE) |>
+    stringr::str_subset("consulting-agreement", negate = TRUE) |>
     stringr::str_sort()
 
   pdftools::pdf_combine(input = c("_report/consulting-agreement.pdf",

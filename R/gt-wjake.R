@@ -9,10 +9,10 @@
 #' @return An object of class `gt_tbl`.
 #' @export
 gt_theme_wjake <- function(gt_dat, bg_color = "#F0F0F0", ...) {
-  gt_dat %>%
-    gt::opt_all_caps() %>%
+  gt_dat |>
+    gt::opt_all_caps() |>
     gt::opt_table_font(font = list(gt::google_font("Source Sans Pro"),
-                                   gt::default_fonts())) %>%
+                                   gt::default_fonts())) |>
     gt::tab_options(column_labels.background.color = bg_color,
                     column_labels.border.top.width = gt::px(3),
                     column_labels.border.top.color = bg_color,
@@ -27,18 +27,18 @@ gt_theme_wjake <- function(gt_dat, bg_color = "#F0F0F0", ...) {
                     table.font.size = 16,
                     data_row.padding = gt::px(3),
                     table.background.color = bg_color,
-                    ...) %>%
+                    ...) |>
     gt::tab_style(style = gt::cell_borders(sides = "bottom",
                                            color = "transparent",
                                            weight = gt::px(2)),
                   locations = gt::cells_body(columns = gt::everything(),
-                                             rows = nrow(gt_dat$`_data`))) %>%
+                                             rows = nrow(gt_dat$`_data`))) |>
     gt::tab_style(style = list(gt::cell_text(weight = "bold", align = "center",
                                              v_align = "middle"),
                                gt::cell_borders(sides = "bottom",
                                                 color = "black",
                                                 weight = gt::px(3))),
-                  locations = gt::cells_column_labels(gt::everything())) %>%
+                  locations = gt::cells_column_labels(gt::everything())) |>
     gt::tab_style(style = gt::cell_fill(color = bg_color),
                   locations = list(gt::cells_body(columns = gt::everything(),
                                                   rows = gt::everything())))

@@ -96,12 +96,12 @@ est_time <- tribble(
   "Report Development",                                               5L
 )
 
-est_time %>%
-  fmt_table() %>%
+est_time |>
+  fmt_table() |>
   kbl(align = c("l", "c"), booktabs = TRUE, linesep = "", escape = FALSE,
-      col.names = c("Task", "Hours")) %>%
-  kable_styling(latex_options = "HOLD_position", full_width = TRUE) %>%
-  column_spec(1, width = "40em") %>%
+      col.names = c("Task", "Hours")) |>
+  kable_styling(latex_options = "HOLD_position", full_width = TRUE) |>
+  column_spec(1, width = "40em") |>
   row_spec(0, align = "c")
 ```
 \
