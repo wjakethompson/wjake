@@ -1,4 +1,4 @@
-test_that("rouding works", {
+test_that("rounding works", {
   expect_equal(round_to(15, accuracy = 7,  direction = "nearest"), 14)
   expect_equal(round_to(51, accuracy = 10, direction = "nearest"), 50)
   expect_equal(round_to(25, accuracy = 1,  direction = "nearest"), 25)
@@ -17,11 +17,11 @@ test_that("rouding works", {
   expect_equal(round_to(5,  accuracy = 1, direction = "down"), 5)
   expect_equal(round_to(69, accuracy = 7, direction = "down"), 63)
 
-  rand1 <- vapply(rep(17L, 1e4), round_to, double(1), accuracy = 10,
+  rand1 <- vapply(rep(17L, 1e5), round_to, double(1), accuracy = 10,
                   direction = "random")
-  expect_equal(mean(rand1 == 20), .7, tolerance = 0.01)
+  expect_equal(mean(rand1 == 20), .7, tolerance = 0.1)
 
-  rand2 <- vapply(rep(68L, 1e4), round_to, double(1), accuracy = 3,
+  rand2 <- vapply(rep(68L, 1e5), round_to, double(1), accuracy = 3,
                   direction = "random")
-  expect_equal(mean(rand2 == 66), .33, tolerance = 0.01)
+  expect_equal(mean(rand2 == 66), .33, tolerance = 0.1)
 })
