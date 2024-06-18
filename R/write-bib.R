@@ -44,8 +44,7 @@ cite_github_pkg <- function(meta) {
   )
   last_date <- last_commit$commit$author$date |>
     lubridate::ymd_hms() |>
-    lubridate::as_date() |>
-    lubridate::year()
+    lubridate::date()
 
   url <- if (!is.null(meta$URL)) {
     meta$URL |>
@@ -59,7 +58,8 @@ cite_github_pkg <- function(meta) {
   glue::glue(
     "@manual{{R-{meta$Package},",
     "  author = {{{authors}}},",
-    "  year = {{{last_date}}},",
+    "  year = {{{lubridate::year(last_date)}}},",
+    "  date = {{{last_date}}},",
     "  title = {{{{{meta$Package}}}: {format_pkg_title(meta$Title)}}},",
     "  version = {{R package version {meta$Version}}},",
     "  type = {{Computer Software}},",
@@ -74,15 +74,16 @@ cite_github_pkg <- function(meta) {
 
 cite_cran_pkg <- function(meta) {
   authors <- pull_package_authors(meta)
-  year <- meta$`Date/Publication` |>
+  date <- meta$`Date/Publication` |>
     lubridate::ymd_hms() |>
-    lubridate::year()
+    lubridate::date()
 
 
   glue::glue(
     "@manual{{R-{meta$Package},",
     "  author = {{{authors}}},",
-    "  year = {{{year}}},",
+    "  year = {{{lubridate::year(date)}}},",
+    "  date = {{{date}}},",
     "  title = {{{{{meta$Package}}}: {format_pkg_title(meta$Title)}}},",
     "  version = {{R package version {meta$Version}}},",
     "  type = {{Computer Software}},",
