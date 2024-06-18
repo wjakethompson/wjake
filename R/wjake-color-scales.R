@@ -69,5 +69,5 @@ scale_wjake <- function(aesthetics, order = 1:5, darken = 0,
     }
     values
   }
-  ggplot2::discrete_scale(aesthetics, "manual", pal, ...)
+  ggplot2::discrete_scale(aesthetics, palette = pal, ...)
 }
