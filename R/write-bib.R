@@ -15,20 +15,18 @@ write_pkg_bib <- function(pkg, file, update = FALSE) {
     pak::pak(pkg, ask = FALSE)
   }
 
-  purrr::map(pkg, cite_package) |>
+  lapply(pkg, cite_package) |>
     unlist() |>
     xfun::write_utf8(file)
 }
 
 cite_package <- function(x) {
   pkg_name <- stringr::str_replace(x, "^.*/", "")
-  meta <- packageDescription(pkg_name)
+  meta <- utils::packageDescription(pkg_name)
   repo <- meta$Repository
 
   pkg_cite <- if (is.null(repo) && meta$RemoteType == "github") {
     cite_github_pkg(meta)
-  } else if (is.null(repo) && is.null(meta$RemoteType)) {
-    cite_local_pkg(meta)
   } else if (repo == "CRAN") {
     cite_cran_pkg(meta)
   }
