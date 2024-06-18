@@ -106,7 +106,7 @@ pull_package_authors <- function(meta) {
 }
 
 format_pkg_title <- function(x) {
-  stringr::str_replace_all(x, "\\n", "")
+  stringr::str_replace_all(x, "\\n", " ")
 }
 
 format_pkg_caps <- function(citation) {
