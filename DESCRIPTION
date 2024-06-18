@@ -31,6 +31,7 @@ Imports:
     rmarkdown,
     rstudioapi,
     scales,
+    showtextdb,
     stringr,
     sysfonts,
     xfun
@@ -45,6 +46,7 @@ Suggests:
     lubridate,
     pluralize,
     roxygen2 (>= 6.1.1),
+    showtext,
     spelling,
     testthat,
     usethis,
