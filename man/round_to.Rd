@@ -2,7 +2,7 @@
 % Please edit documentation in R/rounding.R
 \name{round_to}
 \alias{round_to}
-\title{Round to a Specified Value}
+\title{Round to a specified value}
 \usage{
 round_to(x, accuracy, direction = c("nearest", "up", "down", "random"))
 }
@@ -22,7 +22,7 @@ Matthews & Harel (2011).}
 A numeric rounded to the specified accuracy.
 }
 \description{
-Round to a Specified Value
+Round to a specified value
 }
 \examples{
 round_to(15, accuracy = 7, direction = "nearest")

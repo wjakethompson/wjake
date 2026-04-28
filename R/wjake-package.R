@@ -7,11 +7,12 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @import grDevices
 #' @import ggplot2
-#' @importFrom rlang .data
+#' @import rlang
 ## usethis namespace: end
 NULL
 
 ## Make R CMD Check go away
-if (getRversion() >= "2.15.1") utils::globalVariables(c("."))
+if (getRversion() >= "2.15.1") {
+  utils::globalVariables(c("."))
+}

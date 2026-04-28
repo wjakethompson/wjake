@@ -1,4 +1,4 @@
-#' Round to a Specified Value
+#' Round to a specified value
 #'
 #' @param x A numeric value to round.
 #' @param accuracy The accuracy with which to round (i.e., round to the nearest
@@ -20,12 +20,15 @@
 #' round_to(15, accuracy = 7, direction = "nearest")
 #' round_to(15, accuracy = 7, direction = "up")
 #' round_to(20, accuracy = 7, direction = "down")
-round_to <- function(x, accuracy,
-                     direction = c("nearest", "up", "down", "random")) {
+round_to <- function(
+  x,
+  accuracy,
+  direction = c("nearest", "up", "down", "random")
+) {
   direction <- rlang::arg_match(direction)
 
-
-  switch(direction,
+  switch(
+    direction,
     nearest = round_nr(x, accuracy),
     up = round_up(x, accuracy),
     down = round_dn(x, accuracy),
@@ -46,14 +49,17 @@ round_up <- function(x, accuracy) {
 }
 
 round_rand <- function(x, accuracy) {
-  if (accuracy == 0) return(x)
-  if (x && accuracy == 0) return(x)
+  if (accuracy == 0) {
+    return(x)
+  }
+  if (x && accuracy == 0) {
+    return(x)
+  }
 
   dn <- round_dn(x, accuracy)
   up <- round_up(x, accuracy)
 
-  probs <- 1 - c((x - dn) / accuracy,
-                 (up - x) / accuracy)
+  probs <- 1 - c((x - dn) / accuracy, (up - x) / accuracy)
 
   sample(c(dn, up), prob = probs, size = 1, replace = FALSE)
 }
