@@ -8,7 +8,9 @@
 #'   file as a side effect.
 #' @export
 write_pkg_bib <- function(pkg, file, update = FALSE) {
-  if (!fs::file_exists(file)) fs::file_create(file)
+  if (!fs::file_exists(file)) {
+    fs::file_create(file)
+  }
 
   # ensure package is installed
   if (update) {
@@ -78,7 +80,6 @@ cite_cran_pkg <- function(meta) {
     lubridate::ymd_hms() |>
     lubridate::date()
 
-
   glue::glue(
     "@manual{{R-{meta$Package},",
     "  author = {{{authors}}},",
@@ -112,10 +113,14 @@ format_pkg_title <- function(x) {
 
 format_pkg_caps <- function(citation) {
   citation |>
-    stringr::str_replace_all("Dynamic Learning Maps",
-                             "{Dynamic Learning Maps}") |>
-    stringr::str_replace_all("University of Kansas",
-                             "{University of Kansas}") |>
+    stringr::str_replace_all(
+      "Dynamic Learning Maps",
+      "{Dynamic Learning Maps}"
+    ) |>
+    stringr::str_replace_all(
+      "University of Kansas",
+      "{University of Kansas}"
+    ) |>
     stringr::str_replace_all("ATLAS", "{ATLAS}") |>
     stringr::str_replace_all("Taylor Swift's", "{Taylor Swift's}") |>
     stringr::str_replace_all(" R ", " {R} ") |>

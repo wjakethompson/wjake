@@ -23,13 +23,13 @@ scale_x_comma <- function(...) {
 #' @rdname xy_scales
 #' @export
 scale_y_comma <- function(...) {
-  scale_y_continuous(labels = scales::label_comma(), expand = expand, ...)
+  scale_y_continuous(labels = scales::label_comma(), ...)
 }
 
 #' @rdname xy_scales
 #' @export
 scale_x_percent <- function(...) {
-  scale_x_continuous(labels = scales::label_percent(), expand = expand, ...)
+  scale_x_continuous(labels = scales::label_percent(), ...)
 }
 
 #' @rdname xy_scales

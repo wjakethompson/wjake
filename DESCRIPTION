@@ -15,43 +15,27 @@ BugReports: https://github.com/wjakethompson/wjake/issues
 Depends: 
     R (>= 4.5.0)
 Imports:
-    bookdown,
     colorspace,
+    english,
     ggplot2 (>= 4.0.0),
     gh,
     grDevices,
     gt,
-    knitr,
     pak,
     rlang (>= 1.1.0),
     rstudioapi,
     scales,
-    showtextdb,
     stringr,
-    sysfonts,
+    tibble,
     xfun
 Suggests:
-    conflicted,
-    dplyr,
-    english,
-    fs,
-    glue,
-    here,
-    kableExtra,
-    lubridate,
-    pluralize,
-    roxygen2 (>= 6.1.1),
-    showtext,
     spelling,
+    taylor,
     testthat,
-    usethis,
-    vdiffr,
-    withr
-Remotes:
-    atlas-aai/ratlas,
-    hrbrmstr/pluralize,
-    hrbrmstr/hrbrthemes
+    vdiffr
 Config/testthat/edition: 3
+Config/Needs/check: r-dcm/rdcmtemplate
+Config/Needs/coverage: r-dcm/rdcmtemplate
 Encoding: UTF-8
 Language: en-US
 LazyData: true

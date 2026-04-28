@@ -9,6 +9,7 @@
 ## usethis namespace: start
 #' @import ggplot2
 #' @import rlang
+#' @importFrom tibble tibble
 ## usethis namespace: end
 NULL
 

@@ -6,3 +6,5 @@
 ^LICENSE\.md$
 ^\.github$
 ^\.claude$
+^[.]?air[.]toml$
+^\.vscode$
