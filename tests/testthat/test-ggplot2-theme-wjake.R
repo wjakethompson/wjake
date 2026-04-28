@@ -11,7 +11,7 @@ test_that("theme_wjake() fonts and axes", {
   vdiffr::expect_doppelganger("default-scatter", p)
 
   p <- ggplot(penguins, aes(x = bill_len)) +
-    geom_histogram(na.rm = TRUE) +
+    geom_histogram(na.rm = TRUE, bins = 30) +
     labs(
       x = "**Bill length** (mm)",
       y = "*n*",

@@ -1,3 +1,19 @@
+test_that("apa_words() correctly formats", {
+  expect_equal(apa_words(-10), stringr::str_replace("-10", "-", "\U2212"))
+  expect_equal(apa_words(-9), "negative nine")
+  expect_equal(apa_words(-5, negative = "minus"), "minus five")
+  expect_equal(apa_words(-1, negative = "blue"), "blue one")
+  expect_equal(apa_words(0), "zero")
+  expect_equal(apa_words(2), "two")
+  expect_equal(apa_words(9), "nine")
+  expect_equal(apa_words(10), "10")
+
+  expect_equal(apa_words(16, ordinal = TRUE), "16th")
+  expect_equal(apa_words(12, ordinal = TRUE), "12th")
+  expect_equal(apa_words(23, ordinal = TRUE), "23rd")
+  expect_equal(apa_words(-13, ordinal = TRUE), gsub("-", "\U2212", "-13th"))
+})
+
 test_that("fmt_digits() uses the correct number of decimals", {
   rand <- runif(n = 10, 0, 100)
   expect_equal(fmt_digits(rand, digits = 2), sprintf("%0.2f", rand))

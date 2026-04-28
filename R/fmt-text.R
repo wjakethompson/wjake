@@ -15,18 +15,23 @@
 #' apa_words(5)
 #' apa_words(16)
 #' apa_words(6, ordinal = TRUE)
-apa_words <- function(x, ordinal = FALSE) {
-  x <- check_0_int(x, name = "x")
+apa_words <- function(x, ordinal = FALSE, negative = "negative") {
+  check_number_whole(x)
+  check_bool(ordinal)
 
-  if (ordinal) {
-    return(scales::ordinal(x, big.mark = ","))
+  output <- if (ordinal) {
+    scales::ordinal(x, big.mark = ",") |>
+      stringr::str_replace("-", "\U2212")
   } else {
-    if (x < 10) {
-      return(english::words(x))
+    if (x > -10 && x < 10) {
+      english::words(x) |>
+        stringr::str_replace("^minus", negative)
     } else {
-      return(fmt_count(x))
+      fmt_digits(x, digits = 0)
     }
   }
+
+  output
 }
 
 #' Text and Number Formatting

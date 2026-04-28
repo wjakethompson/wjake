@@ -52,9 +52,6 @@ round_rand <- function(x, accuracy) {
   if (accuracy == 0) {
     return(x)
   }
-  if (x && accuracy == 0) {
-    return(x)
-  }
 
   dn <- round_dn(x, accuracy)
   up <- round_up(x, accuracy)
