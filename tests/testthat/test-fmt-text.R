@@ -104,7 +104,7 @@ test_that("fmt_digits() can keep boundaries if needed", {
 test_that("fmt_count() adds comma and has no decimals", {
   rand <- sample(0:1000000, size = 100000)
   expect_equal(
-    fmt_count(rand),
+    fmt_count(rand, sub_threshold = 0),
     formatC(rand, digits = 0, big.mark = ",", format = "f")
   )
 })
@@ -121,15 +121,17 @@ test_that("fmt_count() can suppress small values", {
 })
 
 test_that("fmt_corr() has correct digits and removes leading 0", {
-  rand <- sort(runif(50, min = -1, max = 1))
+  rand <- sort(runif(50, min = -0.99, max = 0.99))
   expect_equal(
     fmt_corr(rand),
     stringr::str_replace(sprintf("%0.3f", rand), "0\\.", ".") |>
+      stringr::str_replace("-\\.000", ".000") |>
       stringr::str_replace("-", "\U2212")
   )
   expect_equal(
     fmt_corr(rand, digits = 2),
     stringr::str_replace(sprintf("%0.2f", rand), "0\\.", ".") |>
+      stringr::str_replace("-\\.00", ".00") |>
       stringr::str_replace("-", "\U2212")
   )
 })

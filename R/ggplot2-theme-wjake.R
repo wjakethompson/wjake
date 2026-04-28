@@ -54,7 +54,7 @@ theme_wjake <- function(
       key = element_blank(),
       position = "bottom"
     ) +
-    ggplot2::theme_sub_axis_x(
+    ggplot2::theme_sub_axis_bottom(
       title = marquee::element_marquee(
         color = "black",
         size = base_size * .8,
@@ -62,7 +62,23 @@ theme_wjake <- function(
       ),
       text = marquee::element_marquee(color = "black", size = base_size)
     ) +
-    ggplot2::theme_sub_axis_y(
+    ggplot2::theme_sub_axis_top(
+      title = marquee::element_marquee(
+        color = "black",
+        size = base_size * .8,
+        hjust = 1
+      ),
+      text = marquee::element_marquee(color = "black", size = base_size)
+    ) +
+    ggplot2::theme_sub_axis_left(
+      title = marquee::element_marquee(
+        color = "black",
+        size = base_size * .8,
+        hjust = 1
+      ),
+      text = marquee::element_marquee(color = "black", size = base_size)
+    ) +
+    ggplot2::theme_sub_axis_right(
       title = marquee::element_marquee(
         color = "black",
         size = base_size * .8,

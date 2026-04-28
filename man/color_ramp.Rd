@@ -26,8 +26,13 @@ ramp_orgblu(output, mid = "#999999")
 \item{bias}{a positive number.  Higher values give more widely spaced
     colors at the high end.}
 
-\item{x}{Colors to pull from the color ramp. Numbers range from 0-1, which
-is a normalized sliding scale of the color ramp.}
+\item{output}{Colors to pull from the color ramp. Numbers range from 0-1,
+which is a normalized sliding scale of the color ramp.}
+
+\item{end}{The end color that the base color should fade into.}
+
+\item{mid}{For pre-made diverging palettes, the color of the midpoint of the
+scale.}
 }
 \description{
 These color ramp functions create color scales that can be used for making
@@ -35,14 +40,20 @@ ggplot2 plots and gt tables. Color ramps are based on the \link{palette_wjake}
 color palette.
 }
 \details{
-\code{make_color_pal} can be used to create a color ramp function for any set of
+\code{\link[=make_color_pal]{make_color_pal()}} can be used to create a color ramp function for any set of
 valid colors.
 
-\code{ramp_blue}, \code{ramp_yellow}, and \code{ramp_yelblu} are pre-made color ramps based
-on the blue and yellow colors from the \link{palette_wjake} color palette.
+\code{\link[=ramp_blue]{ramp_blue()}}, \code{\link[=ramp_yellow]{ramp_yellow()}}, and \code{\link[=ramp_yelblu]{ramp_yelblu()}} are pre-made color ramps
+based on the blue and yellow colors from the \link{palette_wjake} color palette.
+
+\code{\link[=ramp_orgblu]{ramp_orgblu()}} is a pre-made color ramp based on the first two colors from
+the \link{palette_okabeito} color palette.
 }
 \examples{
-ramp_blue(seq(0, 1, by = 0.2))
+new_ramp <- make_color_pal(c("red", "grey", "blue"))
+new_ramp(seq(0, 1, length.out = 10))
 
+# Pre-made palettes
+ramp_blue(seq(0, 1, by = 0.2))
 ramp_yellow(seq(0.2, 1, length.out = 5))
 }

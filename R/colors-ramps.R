@@ -5,26 +5,35 @@
 #' color palette.
 #'
 #' @inheritParams grDevices::colorRamp
-#' @param x Colors to pull from the color ramp. Numbers range from 0-1, which
-#'   is a normalized sliding scale of the color ramp.
+#' @param output Colors to pull from the color ramp. Numbers range from 0-1,
+#'   which is a normalized sliding scale of the color ramp.
+#' @param end The end color that the base color should fade into.
+#' @param mid For pre-made diverging palettes, the color of the midpoint of the
+#'   scale.
 #'
 #' @details
-#' `make_color_pal` can be used to create a color ramp function for any set of
+#' [make_color_pal()] can be used to create a color ramp function for any set of
 #' valid colors.
 #'
-#' `ramp_blue`, `ramp_yellow`, and `ramp_yelblu` are pre-made color ramps based
-#' on the blue and yellow colors from the [palette_wjake] color palette.
+#' [ramp_blue()], [ramp_yellow()], and [ramp_yelblu()] are pre-made color ramps
+#' based on the blue and yellow colors from the [palette_wjake] color palette.
+#'
+#' [ramp_orgblu()] is a pre-made color ramp based on the first two colors from
+#' the [palette_okabeito] color palette.
 #'
 #' @name color_ramp
 
 #' @rdname color_ramp
 #' @export
 #' @examples
-#' ramp_blue(seq(0, 1, by = 0.2))
+#' new_ramp <- make_color_pal(c("red", "grey", "blue"))
+#' new_ramp(seq(0, 1, length.out = 10))
 #'
+#' # Pre-made palettes
+#' ramp_blue(seq(0, 1, by = 0.2))
 #' ramp_yellow(seq(0.2, 1, length.out = 5))
 make_color_pal <- function(colors, bias = 1) {
-  get_color <- colorRamp(colors, bias = bias)
+  get_color <- grDevices::colorRamp(colors, bias = bias)
   function(x) rgb(get_color(x), maxColorValue = 255)
 }
 
