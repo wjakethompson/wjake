@@ -34,16 +34,26 @@ legend titles, the plot title and tag text.}
 
 \item{ink, paper, accent}{colour for foreground, background, and accented elements respectively.}
 
+\item{continuous}{A character vector of valid colors that will be
+interpolated into a continuous color scale.}
+
+\item{discrete}{A character vector of colors to use for discrete color
+scales.}
+
+\item{transparent}{Logical indicator for whether the background of the plot
+should be transparent.}
+
 \item{...}{Additional parameters passed to \code{\link[ggplot2:theme]{ggplot2::theme()}}.}
 }
 \description{
 Based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}.
 }
 \examples{
+\dontrun{
 library(ggplot2)
 
 ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
-  geom_point(aes(color = species)) +
+  geom_point(aes(color = species), na.rm = TRUE) +
   labs(
     x = "Bill length (mm)",
     y = "Flipper length (mm)",
@@ -53,5 +63,5 @@ ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
     color = "Species"
   ) +
   theme_wjake()
-
+}
 }

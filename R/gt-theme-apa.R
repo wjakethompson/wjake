@@ -1,18 +1,23 @@
 #' Title
 #'
-#' @param data
-#' @param dec_dig
-#' @param corr_dig
-#' @param fmt_extreme
-#' @param bg_color
-#' @param font
-#' @param font_size
+#' @param data The gt table data object.
+#' @param dec_dig The number of decimal places to round to for numeric values.
+#' @param corr_dig The number of decimal places to round to for numeric values
+#'   all constrained to be between \[-1, 1\].
+#' @param fmt_extreme Logical indicator for whether values close to extremes
+#'   should be suppressed (e.g., .000001 becomes <.001).
+#' @param bg_color The background color of the table.
+#' @param font The font to use for the table.
+#' @param font_size The base font size for the table.
 #' @param ... Additional options passed to [gt::tab_options()]
 #'
-#' @returns
+#' @returns An object of class `gt-tbl`.
 #'
 #' @export
 #' @examples
+#' gt::gt(head(penguins)) |>
+#'   gt_theme_apa() |>
+#'   gt::fmt_number(year, sep_mark = "", decimals = 0)
 gt_theme_apa <- function(
   data,
   dec_dig = 1,
@@ -25,23 +30,27 @@ gt_theme_apa <- function(
 ) {
   # general formatting -----
   data <- data |>
-    gt::cols_align_decimal(columns = where(is.numeric)) |>
+    gt::cols_align_decimal(columns = dplyr::where(is.numeric)) |>
     gt::opt_table_font(font = list(font))
 
   # number formatting -----
   data <- data |>
     ## integers
-    gt::fmt_number(columns = where(is.integer), decimals = 0) |>
+    gt::fmt_number(columns = dplyr::where(is.integer), decimals = 0) |>
 
     ## numerics
     gt::fmt_number(
-      columns = where(\(x) is.double(x) && !all(dplyr::between(x, -1, 1))),
+      columns = dplyr::where(\(x) {
+        is.double(x) && !all(dplyr::between(x, -1, 1))
+      }),
       decimals = dec_dig
     ) |>
 
     ## proportions and correlations bounded [-1, 1]
     gt::fmt_number(
-      columns = where(\(x) is.double(x) && all(dplyr::between(x, -1, 1))),
+      columns = dplyr::where(\(x) {
+        is.double(x) && all(dplyr::between(x, -1, 1))
+      }),
       decimals = 3
     )
 
@@ -49,21 +58,29 @@ gt_theme_apa <- function(
   if (fmt_extreme) {
     data <- data |>
       gt::sub_small_vals(
-        columns = where(\(x) is.double(x) && !all(dplyr::between(x, -1, 1))),
+        columns = dplyr::where(\(x) {
+          is.double(x) && !all(dplyr::between(x, -1, 1))
+        }),
         threshold = 1 / (10^dec_dig)
       ) |>
       gt::sub_large_vals(
-        columns = where(\(x) is.double(x) && !all(dplyr::between(x, -1, 1))),
+        columns = dplyr::where(\(x) {
+          is.double(x) && !all(dplyr::between(x, -1, 1))
+        }),
         threshold = 100 - (1 / (10^dec_dig)),
         large_pattern = ">{x}"
       ) |>
       gt::sub_large_vals(
-        columns = where(\(x) is.double(x) && all(dplyr::between(x, -1, 1))),
+        columns = dplyr::where(\(x) {
+          is.double(x) && all(dplyr::between(x, -1, 1))
+        }),
         threshold = 1 - (1 / (10^corr_dig)),
         large_pattern = ">{x}"
       ) |>
       gt::sub_large_vals(
-        columns = where(\(x) is.double(x) && all(dplyr::between(x, -1, 1))),
+        columns = dplyr::where(\(x) {
+          is.double(x) && all(dplyr::between(x, -1, 1))
+        }),
         threshold = 1 - (1 / (10^corr_dig)),
         large_pattern = "<\U2212{x}",
         sign = "-"
@@ -87,7 +104,9 @@ gt_theme_apa <- function(
     gt::text_transform(
       fn = \(x) gsub("0\\.", ".", x),
       locations = gt::cells_body(
-        columns = where(\(x) is.double(x) && all(dplyr::between(x, -1, 1))),
+        columns = dplyr::where(\(x) {
+          is.double(x) && all(dplyr::between(x, -1, 1))
+        }),
         rows = gt::everything()
       )
     ) |>

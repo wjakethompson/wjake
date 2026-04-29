@@ -34,7 +34,7 @@
 #' ramp_yellow(seq(0.2, 1, length.out = 5))
 make_color_pal <- function(colors, bias = 1) {
   get_color <- grDevices::colorRamp(colors, bias = bias)
-  function(x) rgb(get_color(x), maxColorValue = 255)
+  function(x) grDevices::rgb(get_color(x), maxColorValue = 255)
 }
 
 #' @rdname color_ramp

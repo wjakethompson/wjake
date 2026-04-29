@@ -58,6 +58,10 @@ test_that("bib file is written", {
 test_that("github packages are citeable", {
   skip_on_cran()
 
+  withr::local_envvar(
+    R_USER_CACHE_DIR = tempfile()
+  )
+
   bib_file <- withr::local_tempfile(fileext = ".bib")
   write_pkg_bib("r-dcm/rdcmtemplate", file = bib_file, update = TRUE)
 

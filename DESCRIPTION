@@ -15,24 +15,31 @@ BugReports: https://github.com/wjakethompson/wjake/issues
 Depends: 
     R (>= 4.5.0)
 Imports:
+    cli,
     colorspace,
+    dplyr,
     english,
     ggplot2 (>= 4.0.0),
+    ggtext,
     gh,
+    glue,
     grDevices,
     gt,
+    knitr,
     pak,
     rlang (>= 1.1.0),
     rstudioapi,
     scales,
+    showtextdb,
     stringr,
-    tibble,
+    sysfonts,
     xfun
 Suggests:
     spelling,
     taylor,
     testthat,
-    vdiffr
+    vdiffr,
+    withr
 Config/testthat/edition: 3
 Config/Needs/check: r-dcm/rdcmtemplate
 Config/Needs/coverage: r-dcm/rdcmtemplate

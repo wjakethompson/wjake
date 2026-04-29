@@ -25,10 +25,12 @@ A ggplot2 continuous scale.
 }
 \description{
 Wrappers around \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}} that provide automatic percent
-or comman formatting.
+or comma formatting.
 }
 \examples{
+library(ggplot2)
 set.seed(1234)
+
 ggplot() +
   geom_point(aes(x = sample(1000:9999, size = 100), y = runif(100, 0, 1))) +
   scale_x_comma() +

@@ -8,7 +8,7 @@
 #'   specified `width`.
 #'
 #' @export
-#' @examples
+#' @examplesIf rstudioapi::isAvailable()
 #' code_heading()
 code_heading <- function(width = 80) {
   cur_location <- rstudioapi::primary_selection(

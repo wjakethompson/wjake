@@ -1,7 +1,7 @@
 #' X & Y scales for percent and comma labels
 #'
 #' Wrappers around [ggplot2::continuous_scale()] that provide automatic percent
-#' or comman formatting.
+#' or comma formatting.
 #'
 #' @param ... Additional arguments passed to [ggplot2::scale_x_continuous()] or
 #'   [ggplot2::scale_y_continuous()].
@@ -11,7 +11,9 @@
 #' @name xy_scales
 #' @export
 #' @examples
+#' library(ggplot2)
 #' set.seed(1234)
+#'
 #' ggplot() +
 #'   geom_point(aes(x = sample(1000:9999, size = 100), y = runif(100, 0, 1))) +
 #'   scale_x_comma() +

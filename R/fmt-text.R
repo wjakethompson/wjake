@@ -6,6 +6,7 @@
 #'
 #' @param x The number to be printed
 #' @param ordinal Do you want the ordinal numbering (e.g., 1st, 6th, etc.)
+#' @param negative The word used to indicate a negative number.
 #'
 #' @family formatters
 #' @return A character string
@@ -68,8 +69,9 @@ apa_words <- function(x, ordinal = FALSE, negative = "negative") {
 #' * [fmt_count()] is used for formatting integer values. Prints whole numbers
 #'   with no decimals.
 #' * [fmt_corr()] is used to format correlations or similar indices that are
-#'   bounded between \[-1, 1\]. By default, these values report 3 decimal places,
-#'   and the leading 0 is removed as required by APA (2020; section 6.36).
+#'   bounded between \[-1, 1\]. By default, these values report 3 decimal
+#'   places, and the leading 0 is removed as required by APA (2020; section
+#'   6.36).
 #' * [fmt_prop()] is used to format proportions or similar indices that are
 #'   bounded between \[0, 1\]. Similar to [fmt_corr()], leading 0s are removed.
 #'   By default, 2 decimal places are reported.
@@ -81,6 +83,8 @@ apa_words <- function(x, ordinal = FALSE, negative = "negative") {
 #' @name formatting
 #' @family formatters
 #' @return The updated character object of the same length as `x`.
+#'
+#' @export
 #' @examples
 #' fmt_digits(runif(5, min = 5, max = 15), digits = 1)
 #' fmt_digits(runif(5, min = 5, max = 15), digits = 3)

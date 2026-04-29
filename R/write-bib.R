@@ -8,8 +8,8 @@
 #'   file as a side effect.
 #' @export
 write_pkg_bib <- function(pkg, file, update = FALSE) {
-  if (!fs::file_exists(file)) {
-    fs::file_create(file)
+  if (!file.exists(file)) {
+    file.create(file)
   }
 
   # ensure package is installed
@@ -33,7 +33,7 @@ cite_package <- function(x) {
     cite_cran_pkg(meta)
   }
 
-  return(pkg_cite)
+  pkg_cite
 }
 
 cite_github_pkg <- function(meta) {
@@ -45,8 +45,7 @@ cite_github_pkg <- function(meta) {
     )
   )
   last_date <- last_commit$commit$author$date |>
-    lubridate::ymd_hms() |>
-    lubridate::date()
+    as.Date()
 
   url <- if (!is.null(meta$URL)) {
     meta$URL |>
@@ -60,7 +59,7 @@ cite_github_pkg <- function(meta) {
   glue::glue(
     "@manual{{R-{meta$Package},",
     "  author = {{{authors}}},",
-    "  year = {{{lubridate::year(last_date)}}},",
+    "  year = {{{stringr::str_sub(last_date, 1, 4)}}},",
     "  date = {{{last_date}}},",
     "  title = {{{{{meta$Package}}}: {format_pkg_title(meta$Title)}}},",
     "  version = {{R package version {meta$Version}}},",
@@ -77,13 +76,12 @@ cite_github_pkg <- function(meta) {
 cite_cran_pkg <- function(meta) {
   authors <- pull_package_authors(meta)
   date <- meta$`Date/Publication` |>
-    lubridate::ymd_hms() |>
-    lubridate::date()
+    as.Date()
 
   glue::glue(
     "@manual{{R-{meta$Package},",
     "  author = {{{authors}}},",
-    "  year = {{{lubridate::year(date)}}},",
+    "  year = {{{stringr::str_sub(date, 1, 4)}}},",
     "  date = {{{date}}},",
     "  title = {{{{{meta$Package}}}: {format_pkg_title(meta$Title)}}},",
     "  version = {{R package version {meta$Version}}},",
@@ -104,7 +102,7 @@ pull_package_authors <- function(meta) {
     stringr::str_replace_all(" \\[.*$", "") |>
     knitr::combine_words(sep = " and ", oxford_comma = FALSE)
 
-  return(authors)
+  authors
 }
 
 format_pkg_title <- function(x) {

@@ -32,7 +32,7 @@
       1  1.23
       2 56.79
 
-# gt_theme_apa() formats correlations with 3 decimals and no leading zero
+# gt_theme_apa() has correlations with 3 digits and no leading zero
 
     Code
       gt::extract_body(tbl)
@@ -97,7 +97,7 @@
       3  &gt;.99
       4  &gt;.99
 
-# gt_theme_apa() skips extreme substitution when fmt_extreme = FALSE
+# gt_theme_apa() can skip extreme substitution
 
     Code
       gt::extract_body(tbl)

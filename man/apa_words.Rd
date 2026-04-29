@@ -4,12 +4,14 @@
 \alias{apa_words}
 \title{Write APA Words}
 \usage{
-apa_words(x, ordinal = FALSE)
+apa_words(x, ordinal = FALSE, negative = "negative")
 }
 \arguments{
 \item{x}{The number to be printed}
 
 \item{ordinal}{Do you want the ordinal numbering (e.g., 1st, 6th, etc.)}
+
+\item{negative}{The word used to indicate a negative number.}
 }
 \value{
 A character string

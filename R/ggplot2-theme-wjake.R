@@ -3,18 +3,21 @@
 #' Based on [ggplot2::theme_minimal()].
 #'
 #' @inheritParams ggplot2::theme_minimal
-#' @param continuous
-#' @param discrete
-#' @param transparent
+#' @param continuous A character vector of valid colors that will be
+#'   interpolated into a continuous color scale.
+#' @param discrete A character vector of colors to use for discrete color
+#'   scales.
+#' @param transparent Logical indicator for whether the background of the plot
+#'   should be transparent.
 #' @param ... Additional parameters passed to [ggplot2::theme()].
 #'
 #' @export
 #'
-#' @examples
+#' @examples \dontrun{
 #' library(ggplot2)
 #'
 #' ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
-#'   geom_point(aes(color = species)) +
+#'   geom_point(aes(color = species), na.rm = TRUE) +
 #'   labs(
 #'     x = "Bill length (mm)",
 #'     y = "Flipper length (mm)",
@@ -24,7 +27,7 @@
 #'     color = "Species"
 #'   ) +
 #'   theme_wjake()
-#'
+#' }
 theme_wjake <- function(
   base_size = 11.5,
   base_family = "Source Sans Pro",

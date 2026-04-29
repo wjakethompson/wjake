@@ -1,5 +1,5 @@
 test_that("xy scales render correctly", {
-  example_data <- tibble::tibble(
+  example_data <- data.frame(
     pct = seq(0, 1, length.out = 50),
     n = seq(0, 5000, length.out = 50)
   )

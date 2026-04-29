@@ -75,8 +75,9 @@ patterns of \code{min_value}, \code{max_value}, and \code{digits}.
 \item \code{\link[=fmt_count]{fmt_count()}} is used for formatting integer values. Prints whole numbers
 with no decimals.
 \item \code{\link[=fmt_corr]{fmt_corr()}} is used to format correlations or similar indices that are
-bounded between [-1, 1]. By default, these values report 3 decimal places,
-and the leading 0 is removed as required by APA (2020; section 6.36).
+bounded between [-1, 1]. By default, these values report 3 decimal
+places, and the leading 0 is removed as required by APA (2020; section
+6.36).
 \item \code{\link[=fmt_prop]{fmt_prop()}} is used to format proportions or similar indices that are
 bounded between [0, 1]. Similar to \code{\link[=fmt_corr]{fmt_corr()}}, leading 0s are removed.
 By default, 2 decimal places are reported.

@@ -15,7 +15,7 @@ test_that("gt_theme_apa() formats doubles with dec_dig decimals", {
   expect_snapshot(gt::extract_body(tbl2))
 })
 
-test_that("gt_theme_apa() formats correlations with 3 decimals and no leading zero", {
+test_that("gt_theme_apa() has correlations with 3 digits and no leading zero", {
   tbl <- gt::gt(data.frame(r = c(-0.5, 0.0, 0.123, 0.456))) |> gt_theme_apa()
   expect_snapshot(gt::extract_body(tbl))
 })
@@ -36,7 +36,7 @@ test_that("gt_theme_apa() substitutes extreme correlations based on corr_dig", {
   expect_snapshot(gt::extract_body(tbl2))
 })
 
-test_that("gt_theme_apa() skips extreme substitution when fmt_extreme = FALSE", {
+test_that("gt_theme_apa() can skip extreme substitution", {
   df <- data.frame(x = c(0.05, 99.95), r = c(-0.9999, 0.9999))
   tbl <- gt::gt(df) |> gt_theme_apa(dec_dig = 1, fmt_extreme = FALSE)
   expect_snapshot(gt::extract_body(tbl))

@@ -16,8 +16,32 @@ gt_theme_apa(
 )
 }
 \arguments{
+\item{data}{The gt table data object.}
+
+\item{dec_dig}{The number of decimal places to round to for numeric values.}
+
+\item{corr_dig}{The number of decimal places to round to for numeric values
+all constrained to be between [-1, 1].}
+
+\item{fmt_extreme}{Logical indicator for whether values close to extremes
+should be suppressed (e.g., .000001 becomes <.001).}
+
+\item{bg_color}{The background color of the table.}
+
+\item{font}{The font to use for the table.}
+
+\item{font_size}{The base font size for the table.}
+
 \item{...}{Additional options passed to \code{\link[gt:tab_options]{gt::tab_options()}}}
+}
+\value{
+An object of class \code{gt-tbl}.
 }
 \description{
 Title
+}
+\examples{
+gt::gt(head(penguins)) |>
+  gt_theme_apa() |>
+  gt::fmt_number(year, sep_mark = "", decimals = 0)
 }
