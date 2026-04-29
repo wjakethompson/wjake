@@ -33,6 +33,7 @@ Imports:
     showtextdb,
     stringr,
     sysfonts,
+    systemfonts,
     xfun
 Suggests:
     spelling,

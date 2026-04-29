@@ -58,47 +58,76 @@ theme_wjake <- function(
       position = "bottom"
     ) +
     ggplot2::theme_sub_axis_bottom(
-      title = marquee::element_marquee(
+      title = ggtext::element_markdown(
+        family = base_family,
         color = "black",
         size = base_size * .8,
         hjust = 1
       ),
-      text = marquee::element_marquee(color = "black", size = base_size)
+      text = ggtext::element_markdown(
+        family = base_family,
+        color = "black",
+        size = base_size
+      )
     ) +
     ggplot2::theme_sub_axis_top(
-      title = marquee::element_marquee(
+      title = ggtext::element_markdown(
+        family = base_family,
         color = "black",
         size = base_size * .8,
         hjust = 1
       ),
-      text = marquee::element_marquee(color = "black", size = base_size)
+      text = ggtext::element_markdown(
+        family = base_family,
+        color = "black",
+        size = base_size
+      )
     ) +
     ggplot2::theme_sub_axis_left(
-      title = marquee::element_marquee(
+      title = ggtext::element_markdown(
+        family = base_family,
         color = "black",
         size = base_size * .8,
         hjust = 1
       ),
-      text = marquee::element_marquee(color = "black", size = base_size)
+      text = ggtext::element_markdown(
+        family = base_family,
+        color = "black",
+        size = base_size
+      )
     ) +
     ggplot2::theme_sub_axis_right(
-      title = marquee::element_marquee(
+      title = ggtext::element_markdown(
+        family = base_family,
         color = "black",
         size = base_size * .8,
         hjust = 1
       ),
-      text = marquee::element_marquee(color = "black", size = base_size)
+      text = ggtext::element_markdown(
+        family = base_family,
+        color = "black",
+        size = base_size
+      )
     ) +
     ggplot2::theme_sub_strip(
-      text = marquee::element_marquee(color = "black", size = base_size)
+      text = ggtext::element_markdown(
+        family = base_family,
+        color = "black",
+        size = base_size
+      )
     ) +
     ggplot2::theme_sub_panel(
       spacing = unit(1, "lines")
     ) +
     ggplot2::theme_sub_plot(
-      title = marquee::element_marquee(color = "black", size = base_size * 1.5),
+      title = ggtext::element_markdown(
+        family = base_family,
+        color = "black",
+        size = base_size * 1.5
+      ),
       title.position = "plot",
-      subtitle = marquee::element_marquee(
+      subtitle = ggtext::element_markdown(
+        family = base_family,
         color = "black",
         size = base_size * 1.2
       )

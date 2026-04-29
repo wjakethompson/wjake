@@ -20,6 +20,16 @@
       italic = font_files[3],
       bolditalic = font_files[4]
     )
+
+    if (!"Source Sans Pro" %in% systemfonts::system_fonts()$family) {
+      systemfonts::register_font(
+        name = "Source Sans Pro",
+        plain = font_files[1],
+        bold = font_files[2],
+        italic = font_files[3],
+        bolditalic = font_files[4]
+      )
+    }
   }
 }
 # nocov end
