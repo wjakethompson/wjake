@@ -160,29 +160,35 @@ test_that("fmt_corr() respects boundaries and thresholds", {
   expect_equal(
     fmt_corr(rand, digits = 3),
     c("<-.999", rand3[2:19], ">.999") |>
+      stringr::str_replace("-\\.000", ".000") |>
       stringr::str_replace("-", "\U2212")
   )
   expect_equal(
     fmt_corr(rand, digits = 3, keep_boundary = TRUE),
     c("-1.000", rand3[2:19], "1.000") |>
+      stringr::str_replace("-\\.000", ".000") |>
       stringr::str_replace("-", "\U2212")
   )
   expect_equal(
     fmt_corr(rand, digits = 3, sub_threshold = .1),
     c(rep("<-.900", 3), rand3[4:17], rep(">.900", 3)) |>
+      stringr::str_replace("-\\.000", ".000") |>
       stringr::str_replace("-", "\U2212")
   )
 
   rand2 <- stringr::str_replace(sprintf("%0.2f", rand), "0\\.", ".") |>
+    stringr::str_replace("-\\.00", ".00") |>
     stringr::str_replace("-", "\U2212")
   expect_equal(
     fmt_corr(rand, digits = 2),
     c("<-.99", "<-.99", rand2[3:18], ">.99", ">.99") |>
+      stringr::str_replace("-\\.00", ".00") |>
       stringr::str_replace("-", "\U2212")
   )
   expect_equal(
     fmt_corr(rand, digits = 2, keep_boundary = TRUE),
     c("-1.00", "<-.99", rand2[3:18], ">.99", "1.00") |>
+      stringr::str_replace("-\\.00", ".00") |>
       stringr::str_replace("-", "\U2212")
   )
 })

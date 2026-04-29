@@ -59,7 +59,7 @@ test_that("github packages are citeable", {
   skip_on_cran()
 
   bib_file <- withr::local_tempfile(fileext = ".bib")
-  write_pkg_bib("rdcmtemplate", file = bib_file, update = TRUE)
+  write_pkg_bib("r-dcm/rdcmtemplate", file = bib_file, update = TRUE)
 
   expect_true(file.exists(bib_file))
   expect_equal(
