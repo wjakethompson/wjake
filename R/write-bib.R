@@ -24,8 +24,11 @@ write_pkg_bib <- function(pkg, file, update = FALSE) {
 
 cite_package <- function(x) {
   pkg_name <- stringr::str_replace(x, "^.*/", "")
+  print(pkg_name)
   meta <- utils::packageDescription(pkg_name)
+  print(meta)
   repo <- meta$Repository
+  print(repo)
 
   pkg_cite <- if (is.null(repo) && meta$RemoteType == "github") {
     cite_github_pkg(meta)
