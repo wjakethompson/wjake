@@ -37,7 +37,7 @@ test_that("gt_theme_apa() substitutes extreme correlations based on corr_dig", {
 })
 
 test_that("gt_theme_apa() can skip extreme substitution", {
-  df <- data.frame(x = c(0.05, 99.95), r = c(-0.9999, 0.9999))
+  df <- data.frame(x = c(0.06, 99.96), r = c(-0.9999, 0.9999))
   tbl <- gt::gt(df) |> gt_theme_apa(dec_dig = 1, fmt_extreme = FALSE)
   expect_snapshot(gt::extract_body(tbl))
 })
