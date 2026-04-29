@@ -24,6 +24,9 @@ test_that("package title is parsed correctly", {
 
 test_that("capitalization is preserved", {
   taylor_cite <- cite_package("taylor")
+  print(packageVersion("taylor"))
+  print(taylor_cite)
+
   expect_match(taylor_cite, "\\@manual\\{R-taylor,")
   expect_match(taylor_cite, "author = \\{W. Jake Thompson\\}")
   expect_match(taylor_cite, "year = \\{[0-9]{4}\\}")
