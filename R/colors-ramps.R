@@ -21,6 +21,10 @@
 #' [ramp_orgblu()] is a pre-made color ramp based on the first two colors from
 #' the [palette_okabeito] color palette.
 #'
+#' @return [make_color_pal()] returns a function that accepts a numeric vector
+#'   of values between 0 and 1 and returns a character vector of hex color
+#'   codes. [ramp_blue()], [ramp_yellow()], [ramp_yelblu()], and [ramp_orgblu()]
+#'   return a character vector of hex color codes.
 #' @name color_ramp
 
 #' @rdname color_ramp

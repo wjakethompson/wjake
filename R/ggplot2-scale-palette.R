@@ -15,6 +15,7 @@
 #'   `na.value`, `limits`, `guide`, and `aesthetics`. See [discrete_scale] for
 #'   more details.
 #'
+#' @return A `ScaleDiscrete` object that can be added to a [ggplot2::ggplot()].
 #' @export
 #' @examples
 #' library(ggplot2)

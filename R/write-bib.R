@@ -7,6 +7,10 @@
 #' @return A list containing the citations. Citations are also written to the
 #'   file as a side effect.
 #' @export
+#' @examples
+#' \dontrun{
+#' write_pkg_bib(c("ggplot2", "gt"), file = "packages.bib")
+#' }
 write_pkg_bib <- function(pkg, file, update = FALSE) {
   if (!file.exists(file)) {
     file.create(file)

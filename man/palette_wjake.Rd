@@ -8,7 +8,7 @@
 \alias{scale_fill_wjake}
 \title{Personal color palette}
 \format{
-An object of class \code{character} of length 5.
+A character vector of 5 hex color codes.
 }
 \usage{
 palette_wjake

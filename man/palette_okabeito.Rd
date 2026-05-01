@@ -8,7 +8,7 @@
 \alias{scale_fill_okabeito}
 \title{Okabe-Ito color palette}
 \format{
-An object of class \code{character} of length 8.
+A character vector of 8 hex color codes.
 }
 \usage{
 palette_okabeito

@@ -20,6 +20,9 @@ transparency.}
 \code{na.value}, \code{limits}, \code{guide}, and \code{aesthetics}. See \link[ggplot2:discrete_scale]{ggplot2::discrete_scale} for
 more details.}
 }
+\value{
+A \code{ScaleDiscrete} object that can be added to a \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
+}
 \description{
 This is a qualitative scale using the color palette used for
 https://wjakethompson.com. See \link{palette_wjake} for details.

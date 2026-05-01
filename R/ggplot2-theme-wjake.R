@@ -11,6 +11,7 @@
 #'   should be transparent.
 #' @param ... Additional parameters passed to [ggplot2::theme()].
 #'
+#' @return A `theme` object that can be added to a [ggplot2::ggplot()].
 #' @export
 #'
 #' @examples \dontrun{

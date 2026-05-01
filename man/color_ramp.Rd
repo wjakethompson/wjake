@@ -34,6 +34,12 @@ which is a normalized sliding scale of the color ramp.}
 \item{mid}{For pre-made diverging palettes, the color of the midpoint of the
 scale.}
 }
+\value{
+\code{\link[=make_color_pal]{make_color_pal()}} returns a function that accepts a numeric vector
+of values between 0 and 1 and returns a character vector of hex color
+codes. \code{\link[=ramp_blue]{ramp_blue()}}, \code{\link[=ramp_yellow]{ramp_yellow()}}, \code{\link[=ramp_yelblu]{ramp_yelblu()}}, and \code{\link[=ramp_orgblu]{ramp_orgblu()}}
+return a character vector of hex color codes.
+}
 \description{
 These color ramp functions create color scales that can be used for making
 ggplot2 plots and gt tables. Color ramps are based on the \link{palette_wjake}

@@ -8,6 +8,9 @@
 #'
 #' @return An object of class `gt_tbl`.
 #' @export
+#' @examples
+#' gt::gt(head(penguins)) |>
+#'   gt_theme_wjake()
 gt_theme_wjake <- function(data, bg_color = "#F0F0F0", font_size = 16, ...) {
   data |>
     gt::tab_source_note("Table: @wjakethompson.com") |>

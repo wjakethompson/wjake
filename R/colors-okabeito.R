@@ -14,6 +14,7 @@
 #'   make figures and presentations that are friendly to colorblind people.
 #'   <https://jfly.uni-koeln.de/color/#pallet> (Original work published 2002)
 #'
+#' @format A character vector of 8 hex color codes.
 #' @export
 #' @examples
 #' scales::show_col(palette_okabeito)

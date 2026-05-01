@@ -4,6 +4,7 @@
 #' includes color scales that can be used in place of
 #' [ggplot2::scale_color_discrete()] or [ggplot2::scale_fill_discrete()].
 #'
+#' @format A character vector of 5 hex color codes.
 #' @export
 #' @examples
 #' scales::show_col(palette_wjake)

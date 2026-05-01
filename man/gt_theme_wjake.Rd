@@ -22,3 +22,7 @@ An object of class \code{gt_tbl}.
 \description{
 A custom theme for tables generated with \code{\link[gt:gt]{gt::gt()}}.
 }
+\examples{
+gt::gt(head(penguins)) |>
+  gt_theme_wjake()
+}

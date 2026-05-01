@@ -45,6 +45,9 @@ should be transparent.}
 
 \item{...}{Additional parameters passed to \code{\link[ggplot2:theme]{ggplot2::theme()}}.}
 }
+\value{
+A \code{theme} object that can be added to a \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
+}
 \description{
 Based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}.
 }
