@@ -1,5 +1,5 @@
 Package: wjake
-Title: Personal R Package for Miscellaneous Themes, Templates, and Functions
+Title: Personal Themes and Formatting Preferences
 Version: 0.1.0
 Authors@R: 
     person(given = "W. Jake",
@@ -7,8 +7,10 @@ Authors@R:
            role = c("aut", "cre", "cph"),
            email = "wjakethompson@gmail.com",
            comment = c(ORCID = "0000-0001-7339-0300"))
-Description: Utility functions, ggplot2 themes, and R Markdown templates. Mainly
-    for personal use.
+Description: A collection of utility functions, themes, and templates to
+    support personal data analysis workflows. Includes functions for
+    formatting numeric values as text, custom themes and color scales for
+    'ggplot2', and automatic formatting for tables created with 'gt'.
 License: MIT + file LICENSE
 URL: https://github.com/wjakethompson/wjake, https://wjake.wjakethompson.com
 BugReports: https://github.com/wjakethompson/wjake/issues
