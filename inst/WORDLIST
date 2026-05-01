@@ -1,6 +1,5 @@
 APA
 CMD
-Codecov
 Harel
 Lüdecke
 Makowski
@@ -13,12 +12,11 @@ Wiernik
 al
 codecov
 colour
-comman
 et
 formatters
 ggplot
-github
 https
+lifecycle
 pre
 pts
 rect
