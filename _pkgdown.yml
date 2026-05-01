@@ -1,0 +1,34 @@
+url: https://wjake.wjakethompson.com
+template:
+  package: wjaketemplate
+  bootstrap: 5
+
+reference:
+- title: Formatting numbers for text
+  contents:
+  - formatting
+  - apa_words
+  - round_to
+
+- title: ggplot2 helpers
+  contents:
+  - theme_wjake
+  - xy_scales
+  - palette_okabeito
+  - palette_wjake
+  - color_ramp
+
+- title: gt helpers
+  contents:
+  - gt_theme_wjake
+  - gt_theme_apa
+
+- title: Miscellaneous
+  contents:
+  - announce
+  - code_heading
+  - write_pkg_bib
+
+- title: internal
+  contents:
+  - scale_palette

@@ -10,7 +10,7 @@ Authors@R:
 Description: Utility functions, ggplot2 themes, and R Markdown templates. Mainly
     for personal use.
 License: MIT + file LICENSE
-URL: https://github.com/wjakethompson/wjake
+URL: https://github.com/wjakethompson/wjake, https://wjake.wjakethompson.com
 BugReports: https://github.com/wjakethompson/wjake/issues
 Depends: 
     R (>= 4.5.0)
@@ -42,8 +42,9 @@ Suggests:
     vdiffr,
     withr
 Config/testthat/edition: 3
-Config/Needs/check: r-dcm/rdcmtemplate
-Config/Needs/coverage: r-dcm/rdcmtemplate
+Config/Needs/website: wjakethompson/wjaketemplate
+Config/Needs/check: wjakethompson/wjaketemplate
+Config/Needs/coverage: wjakethompson/wjaketemplate
 Encoding: UTF-8
 Language: en-US
 LazyData: true
