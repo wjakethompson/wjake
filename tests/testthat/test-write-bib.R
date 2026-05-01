@@ -64,11 +64,11 @@ test_that("github packages are citeable", {
   )
 
   bib_file <- withr::local_tempfile(fileext = ".bib")
-  write_pkg_bib("r-dcm/rdcmtemplate", file = bib_file, update = TRUE)
+  write_pkg_bib("wjakethompson/wjaketemplate", file = bib_file, update = TRUE)
 
   expect_true(file.exists(bib_file))
   expect_equal(
     xfun::read_utf8(bib_file),
-    stringr::str_split_1(cite_package("rdcmtemplate"), "\n")
+    stringr::str_split_1(cite_package("wjaketemplate"), "\n")
   )
 })

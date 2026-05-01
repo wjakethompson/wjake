@@ -13,6 +13,7 @@ often.
 Useful links:
 \itemize{
   \item \url{https://github.com/wjakethompson/wjake}
+  \item \url{https://wjake.wjakethompson.com}
   \item Report bugs at \url{https://github.com/wjakethompson/wjake/issues}
 }
 
