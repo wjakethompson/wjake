@@ -1,6 +1,6 @@
 Package: wjake
 Title: Personal Themes and Formatting Preferences
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: 
     person(given = "W. Jake",
            family = "Thompson",
