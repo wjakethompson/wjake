@@ -87,7 +87,7 @@ ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
     y = "Flipper length (mm)",
     title = "Seminal ggplot2 scatterplot example",
     subtitle = "A plot that is only useful for demonstration purposes",
-    caption = "Brought to you by 🐧",
+    caption = "Brought to you by the letter *p*",
     color = "Species"
   ) +
   theme_wjake()
