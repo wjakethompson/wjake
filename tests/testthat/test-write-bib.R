@@ -18,7 +18,7 @@ test_that("package title is parsed correctly", {
 
   expect_equal(
     format_pkg_title(wjake_meta$Title),
-    "Personal R Package for Miscellaneous Themes, Templates, and Functions"
+    "Personal Themes and Formatting Preferences"
   )
 })
 

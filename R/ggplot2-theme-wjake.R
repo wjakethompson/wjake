@@ -24,7 +24,7 @@
 #'     y = "Flipper length (mm)",
 #'     title = "Seminal ggplot2 scatterplot example",
 #'     subtitle = "A plot that is only useful for demonstration purposes",
-#'     caption = "Brought to you by 🐧",
+#'     caption = "Brought to you by the letter *p*",
 #'     color = "Species"
 #'   ) +
 #'   theme_wjake()
@@ -62,7 +62,7 @@ theme_wjake <- function(
       title = ggtext::element_markdown(
         family = base_family,
         color = "black",
-        size = base_size * .8,
+        size = rel(.8),
         hjust = 1
       ),
       text = ggtext::element_markdown(
@@ -75,7 +75,7 @@ theme_wjake <- function(
       title = ggtext::element_markdown(
         family = base_family,
         color = "black",
-        size = base_size * .8,
+        size = rel(.8),
         hjust = 1
       ),
       text = ggtext::element_markdown(
@@ -88,7 +88,7 @@ theme_wjake <- function(
       title = ggtext::element_markdown(
         family = base_family,
         color = "black",
-        size = base_size * .8,
+        size = rel(.8),
         hjust = 1
       ),
       text = ggtext::element_markdown(
@@ -101,7 +101,7 @@ theme_wjake <- function(
       title = ggtext::element_markdown(
         family = base_family,
         color = "black",
-        size = base_size * .8,
+        size = rel(.8),
         hjust = 1
       ),
       text = ggtext::element_markdown(
@@ -124,13 +124,18 @@ theme_wjake <- function(
       title = ggtext::element_markdown(
         family = base_family,
         color = "black",
-        size = base_size * 1.5
+        size = rel(1.5)
       ),
       title.position = "plot",
       subtitle = ggtext::element_markdown(
         family = base_family,
         color = "black",
-        size = base_size * 1.2
+        size = rel(1.2)
+      ),
+      caption = ggtext::element_markdown(
+        family = base_family,
+        color = "black",
+        size = rel(.8)
       )
     ) +
     ggplot2::theme(
