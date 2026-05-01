@@ -1,0 +1,75 @@
+# wjake
+
+This is a personal R package containing utility functions and custom
+themes for[ggplot2](https://ggplot2.tidyverse.org/) and
+[gt](https://gt.rstudio.com/).
+
+## Installation
+
+You can install wjake from github with:
+
+``` r
+
+# install.packages("remotes")
+remotes::install_github("wjakethompson/wjake")
+```
+
+## Code of Conduct
+
+Please note that the wjake project is released with a [Contributor Code
+of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
+# Package index
+
+## Formatting numbers for text
+
+- [`fmt_digits()`](https://wjake.wjakethompson.com/reference/formatting.md)
+  [`fmt_count()`](https://wjake.wjakethompson.com/reference/formatting.md)
+  [`fmt_corr()`](https://wjake.wjakethompson.com/reference/formatting.md)
+  [`fmt_prop()`](https://wjake.wjakethompson.com/reference/formatting.md)
+  [`fmt_pct()`](https://wjake.wjakethompson.com/reference/formatting.md)
+  [`fmt_prop_pct()`](https://wjake.wjakethompson.com/reference/formatting.md)
+  : Text and Number Formatting
+- [`apa_words()`](https://wjake.wjakethompson.com/reference/apa_words.md)
+  : Write APA Words
+- [`round_to()`](https://wjake.wjakethompson.com/reference/round_to.md)
+  : Round to a specified value
+
+## ggplot2 helpers
+
+- [`theme_wjake()`](https://wjake.wjakethompson.com/reference/theme_wjake.md)
+  : Personalized ggplot2 theme
+- [`scale_x_comma()`](https://wjake.wjakethompson.com/reference/xy_scales.md)
+  [`scale_y_comma()`](https://wjake.wjakethompson.com/reference/xy_scales.md)
+  [`scale_x_percent()`](https://wjake.wjakethompson.com/reference/xy_scales.md)
+  [`scale_y_percent()`](https://wjake.wjakethompson.com/reference/xy_scales.md)
+  : X & Y scales for percent and comma labels
+- [`palette_okabeito`](https://wjake.wjakethompson.com/reference/palette_okabeito.md)
+  : Okabe-Ito color palette
+- [`palette_wjake`](https://wjake.wjakethompson.com/reference/palette_wjake.md)
+  : Personal color palette
+- [`make_color_pal()`](https://wjake.wjakethompson.com/reference/color_ramp.md)
+  [`ramp_blue()`](https://wjake.wjakethompson.com/reference/color_ramp.md)
+  [`ramp_yellow()`](https://wjake.wjakethompson.com/reference/color_ramp.md)
+  [`ramp_yelblu()`](https://wjake.wjakethompson.com/reference/color_ramp.md)
+  [`ramp_orgblu()`](https://wjake.wjakethompson.com/reference/color_ramp.md)
+  : Custom color ramps
+
+## gt helpers
+
+- [`gt_theme_wjake()`](https://wjake.wjakethompson.com/reference/gt_theme_wjake.md)
+  : Personalized gt theme
+- [`gt_theme_apa()`](https://wjake.wjakethompson.com/reference/gt_theme_apa.md)
+  : Title
+
+## Miscellaneous
+
+- [`announce()`](https://wjake.wjakethompson.com/reference/announce.md)
+  : Create an announcement adjective
+- [`code_heading()`](https://wjake.wjakethompson.com/reference/code_heading.md)
+  : Create heading dividers
+- [`write_pkg_bib()`](https://wjake.wjakethompson.com/reference/write_pkg_bib.md)
+  : Write a bibliography for R packages
+
