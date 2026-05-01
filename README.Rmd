@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
+  dev = "ragg_png",
   out.width = "100%"
 )
 ```
@@ -23,13 +24,13 @@ knitr::opts_chunk$set(
 [![R package version](https://www.r-pkg.org/badges/version/wjake)](https://CRAN.R-project.org/package=wjake)
 [![Package downloads](https://cranlogs.r-pkg.org/badges/grand-total/wjake)](https://cran.r-project.org/package=wjake)</br>
 [![R-CMD-check](https://github.com/wjakethompson/wjake/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wjakethompson/wjake/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/wjakethompson/wjake/branch/main/graph/badge.svg?token=i9e5Zt18sa)](https://codecov.io/gh/wjakethompson/wjake)
+[![codecov](https://codecov.io/gh/wjakethompson/wjake/branch/main/graph/badge.svg?token=i9e5Zt18sa)](https://app.codecov.io/gh/wjakethompson/wjake)
 [![pages-build-deployment](https://github.com/wjakethompson/wjake/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/wjakethompson/wjake/actions/workflows/pages/pages-build-deployment)</br>
 [![Signed by](https://img.shields.io/badge/Keybase-Verified-brightgreen.svg)](https://keybase.io/wjakethompson)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 <!-- badges: end -->
 
-This is a personal R package containing utility functions and custom themes for[ggplot2](https://ggplot2.tidyverse.org/) and [gt](https://gt.rstudio.com/). 
+This is a personal R package containing utility functions and custom themes for [ggplot2](https://ggplot2.tidyverse.org/) and [gt](https://gt.rstudio.com/). 
 
 ## Installation
 
@@ -46,9 +47,36 @@ To install the development version from [GitHub](https://github.com/) use:
 remotes::install_github("wjakethompson/wjake")
 ```
 
-## Example
+## Examples
 
+Create branded plots with `theme_wjake()`:
 
+```{r penguin-plot}
+library(ggplot2)
+
+ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
+  geom_point(aes(color = species), na.rm = TRUE) +
+  labs(
+    x = "Bill length (mm)",
+    y = "Flipper length (mm)",
+    title = "Seminal ggplot2 scatterplot example",
+    subtitle = "A plot that is only useful for demonstration purposes",
+    caption = "Brought to you by \U1F427",
+    color = "Species"
+  ) +
+  theme_wjake()
+```
+
+And tables with `gt_theme_wjake()`:
+
+```{r penguin-table}
+library(gt)
+
+head(penguins) |>
+  gt() |>
+  gt_theme_wjake(bg_color = "white") |>
+  fmt_number(year, decimals = 0, use_seps = FALSE)
+```
 
 ## Code of Conduct
 
