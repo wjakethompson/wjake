@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# wjake
+# wjake <a href="https://wjake.wjakethompson.com"><img src="man/figures/logo.png" align="right" height="139" alt="wjake website" /></a>
 
 <!-- badges: start -->
 
@@ -14,7 +14,8 @@ version](https://www.r-pkg.org/badges/version/wjake)](https://CRAN.R-project.org
 [![Package
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/wjake)](https://cran.r-project.org/package=wjake)</br>
 [![R-CMD-check](https://github.com/wjakethompson/wjake/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wjakethompson/wjake/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/wjakethompson/wjake/branch/main/graph/badge.svg?token=i9e5Zt18sa)](https://codecov.io/gh/wjakethompson/wjake)</br>
+[![codecov](https://codecov.io/gh/wjakethompson/wjake/branch/main/graph/badge.svg?token=i9e5Zt18sa)](https://codecov.io/gh/wjakethompson/wjake)
+[![pages-build-deployment](https://github.com/wjakethompson/wjake/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/wjakethompson/wjake/actions/workflows/pages/pages-build-deployment)</br>
 [![Signed
 by](https://img.shields.io/badge/Keybase-Verified-brightgreen.svg)](https://keybase.io/wjakethompson)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -26,12 +27,22 @@ themes for[ggplot2](https://ggplot2.tidyverse.org/) and
 
 ## Installation
 
-You can install wjake from github with:
+You can install the released version of wjake from
+[CRAN](https://cran.r-project.org/) with:
+
+``` r
+install.packages("wjake")
+```
+
+To install the development version from [GitHub](https://github.com/)
+use:
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("wjakethompson/wjake")
 ```
+
+## Example
 
 ## Code of Conduct
 
