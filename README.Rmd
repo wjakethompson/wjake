@@ -35,13 +35,13 @@ This is a personal R package containing utility functions and custom themes for[
 
 You can install the released version of wjake from [CRAN](https://cran.r-project.org/) with:
 
-``` r
+```r
 install.packages("wjake")
 ```
 
 To install the development version from [GitHub](https://github.com/) use:
 
-``` r
+```r
 # install.packages("remotes")
 remotes::install_github("wjakethompson/wjake")
 ```
