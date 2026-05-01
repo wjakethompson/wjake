@@ -69,6 +69,11 @@ theme_wjake(
   Additional parameters passed to
   [`ggplot2::theme()`](https://ggplot2.tidyverse.org/reference/theme.html).
 
+## Value
+
+A `theme` object that can be added to a
+[`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
+
 ## Examples
 
 ``` r

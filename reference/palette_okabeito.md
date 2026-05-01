@@ -17,7 +17,7 @@ palette_okabeito
 
 ## Format
 
-An object of class `character` of length 8.
+A character vector of 8 hex color codes.
 
 ## References
 

@@ -6,13 +6,24 @@ themes for[ggplot2](https://ggplot2.tidyverse.org/) and
 
 ## Installation
 
-You can install wjake from github with:
+You can install the released version of wjake from
+[CRAN](https://cran.r-project.org/) with:
+
+``` r
+
+install.packages("wjake")
+```
+
+To install the development version from [GitHub](https://github.com/)
+use:
 
 ``` r
 
 # install.packages("remotes")
 remotes::install_github("wjakethompson/wjake")
 ```
+
+## Example
 
 ## Code of Conduct
 

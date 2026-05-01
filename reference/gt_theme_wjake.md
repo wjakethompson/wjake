@@ -33,3 +33,15 @@ gt_theme_wjake(data, bg_color = "#F0F0F0", font_size = 16, ...)
 ## Value
 
 An object of class `gt_tbl`.
+
+## Examples
+
+``` r
+gt::gt(head(penguins)) |>
+  gt_theme_wjake()
+
+
+  
+
+species
+```

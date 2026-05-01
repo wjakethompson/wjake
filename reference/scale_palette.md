@@ -34,6 +34,11 @@ for details.
   [ggplot2::discrete_scale](https://ggplot2.tidyverse.org/reference/discrete_scale.html)
   for more details.
 
+## Value
+
+A `ScaleDiscrete` object that can be added to a
+[`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
+
 ## Examples
 
 ``` r

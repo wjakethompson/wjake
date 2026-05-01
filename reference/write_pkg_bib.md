@@ -26,3 +26,11 @@ write_pkg_bib(pkg, file, update = FALSE)
 
 A list containing the citations. Citations are also written to the file
 as a side effect.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+write_pkg_bib(c("ggplot2", "gt"), file = "packages.bib")
+} # }
+```

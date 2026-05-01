@@ -45,6 +45,13 @@ ramp_orgblu(output, mid = "#999999")
   For pre-made diverging palettes, the color of the midpoint of the
   scale.
 
+## Value
+
+`make_color_pal()` returns a function that accepts a numeric vector of
+values between 0 and 1 and returns a character vector of hex color
+codes. `ramp_blue()`, `ramp_yellow()`, `ramp_yelblu()`, and
+`ramp_orgblu()` return a character vector of hex color codes.
+
 ## Details
 
 `make_color_pal()` can be used to create a color ramp function for any

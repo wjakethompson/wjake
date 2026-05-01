@@ -14,7 +14,7 @@ palette_wjake
 
 ## Format
 
-An object of class `character` of length 5.
+A character vector of 5 hex color codes.
 
 ## Examples
 
