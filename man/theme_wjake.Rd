@@ -52,7 +52,6 @@ A \code{theme} object that can be added to a \code{\link[ggplot2:ggplot]{ggplot2
 Based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}.
 }
 \examples{
-\dontrun{
 library(ggplot2)
 
 ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
@@ -66,5 +65,4 @@ ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
     color = "Species"
   ) +
   theme_wjake()
-}
 }

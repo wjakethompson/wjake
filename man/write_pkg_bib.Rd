@@ -21,7 +21,5 @@ file as a side effect.
 Write a bibliography for R packages
 }
 \examples{
-\dontrun{
-write_pkg_bib(c("ggplot2", "gt"), file = "packages.bib")
-}
+write_pkg_bib(c("ggplot2", "gt"), file = tempfile(fileext = "bib"))
 }
