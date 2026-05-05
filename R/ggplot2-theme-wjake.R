@@ -14,7 +14,7 @@
 #' @return A `theme` object that can be added to a [ggplot2::ggplot()].
 #' @export
 #'
-#' @examples
+#' @examples \dontrun{
 #' library(ggplot2)
 #'
 #' ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
@@ -28,6 +28,7 @@
 #'     color = "Species"
 #'   ) +
 #'   theme_wjake()
+#' }
 theme_wjake <- function(
   base_size = 11.5,
   base_family = "Source Sans Pro",
