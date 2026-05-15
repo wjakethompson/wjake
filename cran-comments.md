@@ -5,5 +5,3 @@
 * This is a new release.
 
 * This is a resubmission to correct the use of \dontrun{} in examples.
-  * \dontrun{} is retained in `theme_wjake.Rd` as the example requires the
-    "Source Sans Pro" font to be installed, which is not available on CRAN.
