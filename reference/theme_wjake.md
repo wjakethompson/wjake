@@ -77,7 +77,6 @@ A `theme` object that can be added to a
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
 library(ggplot2)
 
 ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
@@ -90,6 +89,5 @@ ggplot(penguins, aes(x = bill_len, y = flipper_len)) +
     caption = "Brought to you by the letter *p*",
     color = "Species"
   ) +
-  theme_wjake()
-} # }
+  theme_wjake(base_family = "sans")
 ```

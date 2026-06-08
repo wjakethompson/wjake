@@ -30,7 +30,5 @@ as a side effect.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-write_pkg_bib(c("ggplot2", "gt"), file = "packages.bib")
-} # }
+write_pkg_bib(c("ggplot2", "gt"), file = tempfile(fileext = "bib"))
 ```
