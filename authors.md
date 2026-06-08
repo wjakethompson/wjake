@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/wjakethompson/wjake/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/wjakethompson/wjake/blob/v1.0.0/DESCRIPTION)
 
 Thompson W (2026). *wjake: Personal Themes and Formatting Preferences*.
 R package version 1.0.0, <https://github.com/wjakethompson/wjake>.
