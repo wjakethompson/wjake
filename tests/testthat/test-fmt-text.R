@@ -153,41 +153,43 @@ test_that("fmt_corr() has correct digits and removes leading 0", {
 })
 
 test_that("fmt_corr() respects boundaries and thresholds", {
-  rand <- c(-1, -.999, -.99, -.9, sort(runif(12, -.9, .9)), .9, .99, .999, 1)
+  rand <- c(
+    c(-1, -.999, -.99, -.9),
+    sort(c(runif(12, -.9, .9), -.0001, .0001)),
+    c(.9, .99, .999, 1)
+  )
 
-  rand3 <- stringr::str_replace(sprintf("%0.3f", rand), "0\\.", ".") |>
-    stringr::str_replace("-", "\U2212")
+  rand3 <- stringr::str_replace(sprintf("%0.3f", rand), "0\\.", ".")
   expect_equal(
     fmt_corr(rand, digits = 3),
-    c("<-.999", rand3[2:19], ">.999") |>
+    c("<-.999", rand3[2:21], ">.999") |>
       stringr::str_replace("-\\.000", ".000") |>
       stringr::str_replace("-", "\U2212")
   )
   expect_equal(
     fmt_corr(rand, digits = 3, keep_boundary = TRUE),
-    c("-1.000", rand3[2:19], "1.000") |>
+    c("-1.000", rand3[2:21], "1.000") |>
       stringr::str_replace("-\\.000", ".000") |>
       stringr::str_replace("-", "\U2212")
   )
   expect_equal(
     fmt_corr(rand, digits = 3, sub_threshold = .1),
-    c(rep("<-.900", 3), rand3[4:17], rep(">.900", 3)) |>
+    c(rep("<-.900", 3), rand3[4:19], rep(">.900", 3)) |>
       stringr::str_replace("-\\.000", ".000") |>
       stringr::str_replace("-", "\U2212")
   )
 
   rand2 <- stringr::str_replace(sprintf("%0.2f", rand), "0\\.", ".") |>
-    stringr::str_replace("-\\.00", ".00") |>
-    stringr::str_replace("-", "\U2212")
+    stringr::str_replace("-\\.00", ".00")
   expect_equal(
     fmt_corr(rand, digits = 2),
-    c("<-.99", "<-.99", rand2[3:18], ">.99", ">.99") |>
+    c("<-.99", "<-.99", rand2[3:20], ">.99", ">.99") |>
       stringr::str_replace("-\\.00", ".00") |>
       stringr::str_replace("-", "\U2212")
   )
   expect_equal(
     fmt_corr(rand, digits = 2, keep_boundary = TRUE),
-    c("-1.00", "<-.99", rand2[3:18], ">.99", "1.00") |>
+    c("-1.00", "<-.99", rand2[3:20], ">.99", "1.00") |>
       stringr::str_replace("-\\.00", ".00") |>
       stringr::str_replace("-", "\U2212")
   )
