@@ -8,15 +8,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/wjakethompson/wjake/blob/v1.0.0/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/wjakethompson/wjake/blob/main/DESCRIPTION)
 
 Thompson W (2026). *wjake: Personal Themes and Formatting Preferences*.
-R package version 1.0.0, <https://github.com/wjakethompson/wjake>.
+R package version 1.0.1, <https://github.com/wjakethompson/wjake>.
 
     @Manual{,
       title = {wjake: Personal Themes and Formatting Preferences},
       author = {W. Jake Thompson},
       year = {2026},
-      note = {R package version 1.0.0},
+      note = {R package version 1.0.1},
       url = {https://github.com/wjakethompson/wjake},
     }
