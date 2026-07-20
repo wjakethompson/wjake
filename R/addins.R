@@ -18,7 +18,7 @@ code_heading <- function(width = 80) {
   cur_length <- cur_location$range$start[2]
   if (cur_length < (width - 2)) {
     rstudioapi::insertText(
-      glue::glue(" {paste(rep('-', width - cur_length), collapse = '')}")
+      glue::glue("{paste(rep('-', width - cur_length), collapse = '')}")
     )
   }
 }
