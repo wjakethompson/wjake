@@ -4,6 +4,8 @@
 
 ## wjake 1.0.1
 
+CRAN release: 2026-06-09
+
 - Minor updates to tests to resolve R CMD CHECK errors.
 
 ## wjake 1.0.0
