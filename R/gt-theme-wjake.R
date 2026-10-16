@@ -11,11 +11,17 @@
 #' @examples
 #' gt::gt(head(penguins)) |>
 #'   gt_theme_wjake()
-gt_theme_wjake <- function(data, bg_color = "#F0F0F0", font_size = 16, ...) {
+gt_theme_wjake <- function(
+  data,
+  font = "Source Sans 3",
+  bg_color = "#F0F0F0",
+  font_size = 16,
+  ...
+) {
   data |>
     gt::tab_source_note("Table: @wjakethompson.com") |>
     gt_theme_apa(
-      font = "Source Sans Pro",
+      font = font,
       bg_color = bg_color,
       font_size = font_size,
       ...

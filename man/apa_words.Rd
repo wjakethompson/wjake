@@ -27,7 +27,7 @@ apa_words(16)
 apa_words(6, ordinal = TRUE)
 }
 \seealso{
-Other formatters: 
+Other formatters:
 \code{\link{formatting}}
 }
 \concept{formatters}

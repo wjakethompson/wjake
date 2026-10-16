@@ -17,8 +17,8 @@ scale_x_percent(...)
 scale_y_percent(...)
 }
 \arguments{
-\item{...}{Additional arguments passed to \code{\link[ggplot2:scale_continuous]{ggplot2::scale_x_continuous()}} or
-\code{\link[ggplot2:scale_continuous]{ggplot2::scale_y_continuous()}}.}
+\item{...}{Additional arguments passed to \code{\link[ggplot2:scale_x_continuous]{ggplot2::scale_x_continuous()}} or
+\code{\link[ggplot2:scale_y_continuous]{ggplot2::scale_y_continuous()}}.}
 }
 \value{
 A ggplot2 continuous scale.

@@ -2,6 +2,7 @@
 % Please edit documentation in R/gt-theme-apa.R
 \name{gt_theme_apa}
 \alias{gt_theme_apa}
+\alias{gt_theme_report}
 \title{Title}
 \usage{
 gt_theme_apa(
@@ -12,6 +13,17 @@ gt_theme_apa(
   bg_color = "#FFFFFF",
   font = "Arial",
   font_size = 11,
+  ...
+)
+
+gt_theme_report(
+  data,
+  dec_dig = 1,
+  corr_dig = 3,
+  fmt_extreme = TRUE,
+  bg_color = "#FFFFFF",
+  font = "Source Serif 4",
+  font_size = 11.5,
   ...
 )
 }

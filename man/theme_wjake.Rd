@@ -49,7 +49,7 @@ should be transparent.}
 A \code{theme} object that can be added to a \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 }
 \description{
-Based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}.
+Based on \code{\link[ggplot2:theme_minimal]{ggplot2::theme_minimal()}}.
 }
 \examples{
 library(ggplot2)

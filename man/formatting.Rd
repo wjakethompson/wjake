@@ -53,7 +53,7 @@ and \code{keep_boundary = FALSE}, a value exactly equal to 0 will become
 and other small values (e.g., 0.000001) will continue to be replaced with
 "<.001".}
 
-\item{...}{Additional arguments passed to \code{\link[scales:comma]{scales::number_format()}} or
+\item{...}{Additional arguments passed to \code{\link[scales:number_format]{scales::number_format()}} or
 \code{\link[=fmt_digits]{fmt_digits()}}. See Details for additional information.}
 }
 \value{
@@ -65,7 +65,7 @@ consistent manner. This is useful for printing numbers inline with text, as
 well as for formatting tables.
 }
 \details{
-\code{\link[=fmt_digits]{fmt_digits()}} is a wrapper for \code{\link[scales:comma]{scales::number_format()}} and prints a number
+\code{\link[=fmt_digits]{fmt_digits()}} is a wrapper for \code{\link[scales:number_format]{scales::number_format()}} and prints a number
 with the specified number of digits, suppressing values close to the minimum
 and maximum values as necessary.
 
@@ -108,7 +108,7 @@ of the American Psychological Association} (7th ed.).
 \doi{doi:10.1037/0000165-000}
 }
 \seealso{
-Other formatters: 
-\code{\link{apa_words}()}
+Other formatters:
+\code{\link[=apa_words]{apa_words()}}
 }
 \concept{formatters}

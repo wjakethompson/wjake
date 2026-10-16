@@ -4,10 +4,18 @@
 \alias{gt_theme_wjake}
 \title{Personalized gt theme}
 \usage{
-gt_theme_wjake(data, bg_color = "#F0F0F0", font_size = 16, ...)
+gt_theme_wjake(
+  data,
+  font = "Source Sans 3",
+  bg_color = "#F0F0F0",
+  font_size = 16,
+  ...
+)
 }
 \arguments{
 \item{data}{The gt table data object.}
+
+\item{font}{The font to use for the table.}
 
 \item{bg_color}{The background color of the table.}
 

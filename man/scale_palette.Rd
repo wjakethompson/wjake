@@ -17,7 +17,7 @@ positive values) or lightened (for negative values).}
 transparency.}
 
 \item{...}{common discrete scale parameters: \code{name}, \code{breaks}, \code{labels},
-\code{na.value}, \code{limits}, \code{guide}, and \code{aesthetics}. See \link[ggplot2:discrete_scale]{ggplot2::discrete_scale} for
+\code{na.value}, \code{limits}, \code{guide}, and \code{aesthetics}. See \link[ggplot2:discrete_scale]{discrete_scale} for
 more details.}
 }
 \value{

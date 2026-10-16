@@ -51,7 +51,7 @@ gt_theme_apa <- function(
       columns = dplyr::where(\(x) {
         is.double(x) && all(dplyr::between(x, -1, 1))
       }),
-      decimals = 3
+      decimals = corr_dig
     )
 
   # extreme value formatting -----
@@ -144,4 +144,29 @@ gt_theme_apa <- function(
     )
 
   data
+}
+
+#' @export
+#' @rdname gt_theme_apa
+gt_theme_report <- function(
+  data,
+  dec_dig = 1,
+  corr_dig = 3,
+  fmt_extreme = TRUE,
+  bg_color = "#FFFFFF",
+  font = "Source Serif 4",
+  font_size = 11.5,
+  ...
+) {
+  gt_theme_apa(
+    data = data,
+    dec_dig = dec_dig,
+    corr_dig = corr_dig,
+    fmt_extreme = fmt_extreme,
+    bg_color = bg_color,
+    font = font,
+    font_size = font_size,
+    ...
+  ) |>
+    gt::opt_all_caps(locations = "column_labels")
 }
