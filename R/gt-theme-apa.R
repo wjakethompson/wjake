@@ -169,5 +169,8 @@ gt_theme_report <- function(
     ...
   ) |>
     gt::opt_all_caps(locations = "column_labels") |>
-    gt::tab_options(table.align = "center")
+    gt::tab_options(
+      table.align = "center",
+      column_labels.border.top.style = "none"
+    )
 }
