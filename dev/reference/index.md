@@ -39,6 +39,7 @@
 - [`gt_theme_wjake()`](https://wjake.wjakethompson.com/dev/reference/gt_theme_wjake.md)
   : Personalized gt theme
 - [`gt_theme_apa()`](https://wjake.wjakethompson.com/dev/reference/gt_theme_apa.md)
+  [`gt_theme_report()`](https://wjake.wjakethompson.com/dev/reference/gt_theme_apa.md)
   : Title
 
 ## Miscellaneous

@@ -31,7 +31,7 @@ for details.
 
   common discrete scale parameters: `name`, `breaks`, `labels`,
   `na.value`, `limits`, `guide`, and `aesthetics`. See
-  [ggplot2::discrete_scale](https://ggplot2.tidyverse.org/reference/discrete_scale.html)
+  [discrete_scale](https://ggplot2.tidyverse.org/reference/discrete_scale.html)
   for more details.
 
 ## Value

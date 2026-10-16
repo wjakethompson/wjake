@@ -6,7 +6,13 @@ A custom theme for tables generated with
 ## Usage
 
 ``` r
-gt_theme_wjake(data, bg_color = "#F0F0F0", font_size = 16, ...)
+gt_theme_wjake(
+  data,
+  font = "Source Sans 3",
+  bg_color = "#F0F0F0",
+  font_size = 16,
+  ...
+)
 ```
 
 ## Arguments
@@ -14,6 +20,10 @@ gt_theme_wjake(data, bg_color = "#F0F0F0", font_size = 16, ...)
 - data:
 
   The gt table data object.
+
+- font:
+
+  The font to use for the table.
 
 - bg_color:
 
